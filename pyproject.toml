@@ -22,10 +22,15 @@ classifiers = [
     "Private :: Do Not Upload"
 ]
 dependencies = [
+    "fastapi>=0.123.0",
+    "jinja2>=3.1.6",
+    "litellm>=1.80.7",
+    "loguru>=0.7.3",
+    "pydantic-settings>=2.11.0",
     "python-dotenv>=0.5.1",
     "setuptools >= 40.9.0",
+    "uvicorn>=0.38.0",
     "wheel==0.41.3",
-    # add your dependencies below...
 ]
 
 [tool.uv]
@@ -44,7 +49,7 @@ dev-dependencies = [
 ]
 
 [project.scripts]  # Define entry points for the application
-hello-world = "concierge.hello:hello_world"
+app = "concierge.app:app"
 
 [build-system]
 requires = ["setuptools", "wheel"]
