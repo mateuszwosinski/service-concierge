@@ -1,0 +1,42 @@
+.PHONY: help install lint format test run dev clean sync
+
+help:
+	@echo "Available commands:"
+	@echo "  make install    - Install the package in editable mode"
+	@echo "  make sync       - Sync dependencies with uv"
+	@echo "  make lint       - Run linting checks with ruff"
+	@echo "  make format     - Format code with ruff"
+	@echo "  make test       - Run tests with pytest"
+	@echo "  make run        - Run the FastAPI application"
+	@echo "  make dev        - Run the app in development mode with auto-reload"
+	@echo "  make clean      - Remove Python cache files"
+
+install:
+	uv pip install -e .
+
+sync:
+	uv sync
+
+lint:
+	ruff check src/ tests/
+
+format:
+	ruff format src/ tests/
+	ruff check --fix src/ tests/
+
+test:
+	pytest tests/ -v
+
+run: sync
+	python -m uvicorn concierge.app:app --host 0.0.0.0 --port 8000
+
+dev: sync
+	python -m uvicorn concierge.app:app --host 0.0.0.0 --port 8000 --reload
+
+clean:
+	find . -type d -name "__pycache__" -exec rm -rf {} +
+	find . -type f -name "*.pyc" -delete
+	find . -type f -name "*.pyo" -delete
+	find . -type f -name "*.egg-info" -exec rm -rf {} +
+	find . -type d -name ".pytest_cache" -exec rm -rf {} +
+	find . -type d -name ".ruff_cache" -exec rm -rf {} +
