@@ -30,6 +30,8 @@ test:
 
 demo: sync
 	python examples/demo_apis.py
+	python examples/demo_tool_definitions.py
+	python examples/demo_understanding_tools.py
 
 run: sync
 	python -m uvicorn concierge.app:app --host 0.0.0.0 --port 8000

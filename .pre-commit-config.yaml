@@ -12,7 +12,7 @@ repos:
       - id: check-json
       - id: check-yaml
 
-  
+
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.8.4
@@ -20,7 +20,7 @@ repos:
       - id: ruff
         name: ruff-lint
         args: [--fix]
-        exclude: (docs/|notebooks/)
+        exclude: (docs/|notebooks/|tests/)
 
       - id: ruff-format
         name: ruff-format

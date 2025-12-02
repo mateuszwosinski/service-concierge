@@ -312,6 +312,15 @@ class KnowledgeAPI:
         """
         return self._products.get(product_id)
 
+    def get_products(self) -> list[Product]:
+        """
+        Get all products in the catalog.
+
+        Returns:
+            List of all Product objects
+        """
+        return list(self._products.values())
+
     def get_products_by_category(self, category: str) -> list[Product]:
         """
         Get all products in a category.
