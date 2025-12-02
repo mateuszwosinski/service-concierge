@@ -7,6 +7,7 @@ from concierge.settings import settings
 
 class Understanding:
     """Class to handle understanding of user input using a language model."""
+
     def __init__(self) -> None:
         self._model = settings.AGENT_MODEL
         self._api_key = settings.OPENAI_API_KEY
