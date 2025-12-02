@@ -1,9 +1,12 @@
 import uvicorn
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from loguru import logger
 
 from concierge.agent.main import Agent
 from concierge.datatypes.chat_types import ChatRequest, ChatResponse
+
+load_dotenv()
 
 app = FastAPI(title="Concierge Service", version="1.0.0")
 
