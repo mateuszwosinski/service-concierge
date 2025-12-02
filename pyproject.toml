@@ -165,6 +165,7 @@ ignore = [
 
 [tool.ruff.lint.pylint]
 max-locals = 20
+max-branches = 20
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
