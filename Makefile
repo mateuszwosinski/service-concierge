@@ -1,4 +1,4 @@
-.PHONY: help install lint format test run dev clean sync
+.PHONY: help install lint format test run dev clean sync demo
 
 help:
 	@echo "Available commands:"
@@ -7,6 +7,7 @@ help:
 	@echo "  make lint       - Run linting checks with ruff"
 	@echo "  make format     - Format code with ruff"
 	@echo "  make test       - Run tests with pytest"
+	@echo "  make demo       - Run mock API demo"
 	@echo "  make run        - Run the FastAPI application"
 	@echo "  make dev        - Run the app in development mode with auto-reload"
 	@echo "  make clean      - Remove Python cache files"
@@ -26,6 +27,9 @@ format:
 
 test:
 	pytest tests/ -v
+
+demo: sync
+	python examples/demo_apis.py
 
 run: sync
 	python -m uvicorn concierge.app:app --host 0.0.0.0 --port 8000
