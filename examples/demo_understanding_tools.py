@@ -2,9 +2,9 @@
 
 from dotenv import load_dotenv
 
-from concierge.agent.understanding import Understanding
-
 load_dotenv()
+
+from concierge.agent.understanding import Understanding  # noqa: E402
 
 
 def demo_tool_calling() -> None:
