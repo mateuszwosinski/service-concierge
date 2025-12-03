@@ -25,10 +25,14 @@ class Agent:
         """
         logger.info(f"Received message for conversation {conversation_id}: {message}")
 
-        self.memory.add_message(conversation_id, RoleMessage(role=Role.USER, message=message))
-
+        # Get conversation history BEFORE adding current message
         conversation = self.memory.get_conversation(conversation_id)
         previous_messages = self._get_messages_from_conversation(conversation)
+
+        # Add current user message to memory
+        self.memory.add_message(conversation_id, RoleMessage(role=Role.USER, message=message))
+
+        # Process with Understanding agent
         answer = self.understanding.process(message, previous_messages)
 
         self.memory.add_message(conversation_id, RoleMessage(role=Role.ASSISTANT, message=answer))
