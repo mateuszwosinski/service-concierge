@@ -358,5 +358,1445 @@
     ],
     "colors": ["Black", "Brown", "Tan", "Burgundy"],
     "sizes": ["32", "34", "36", "38", "40", "42"]
+  },
+  "PROD-021": {
+    "product_id": "PROD-021",
+    "name": "Cashmere Turtleneck",
+    "description": "Ultra-soft pure cashmere turtleneck with ribbed collar and cuffs. Classic silhouette perfect for layering or wearing alone.",
+    "price": 395.00,
+    "category": "Knitwear",
+    "in_stock": true,
+    "features": [
+      "100% Italian cashmere",
+      "Ribbed turtleneck collar",
+      "Slim fit design",
+      "Ribbed cuffs and hem",
+      "Lightweight 2-ply knit",
+      "Dry clean only"
+    ],
+    "colors": ["Black", "Camel", "Navy", "Charcoal", "Ivory"],
+    "sizes": ["XS", "S", "M", "L", "XL"]
+  },
+  "PROD-022": {
+    "product_id": "PROD-022",
+    "name": "Suede Desert Boots",
+    "description": "Classic desert boots crafted from premium suede with crepe rubber soles. Timeless design with modern comfort.",
+    "price": 325.00,
+    "category": "Footwear",
+    "in_stock": true,
+    "features": [
+      "Premium Italian suede",
+      "Crepe rubber sole",
+      "Two-eyelet lace-up",
+      "Unlined construction",
+      "Leather insole",
+      "Welted construction"
+    ],
+    "colors": ["Sand", "Navy", "Tobacco", "Grey"],
+    "sizes": ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12"]
+  },
+  "PROD-023": {
+    "product_id": "PROD-023",
+    "name": "Technical Rain Jacket",
+    "description": "3-layer Gore-Tex shell jacket designed for maximum weather protection. Fully seam-sealed with adjustable hood and ventilation zips.",
+    "price": 695.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "3-layer Gore-Tex Pro fabric",
+      "Fully seam-sealed construction",
+      "Adjustable storm hood",
+      "Pit-zip ventilation",
+      "Internal pockets",
+      "YKK Aquaguard zippers"
+    ],
+    "colors": ["Black", "Navy", "Forest", "Graphite"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-024": {
+    "product_id": "PROD-024",
+    "name": "Linen Button-Up Shirt",
+    "description": "Lightweight linen shirt perfect for warm weather. Natural breathability with a relaxed fit and mother-of-pearl buttons.",
+    "price": 175.00,
+    "category": "Tops",
+    "in_stock": true,
+    "features": [
+      "100% European linen",
+      "Mother-of-pearl buttons",
+      "Spread collar",
+      "Relaxed fit",
+      "Pre-washed for softness",
+      "Natural wrinkle texture"
+    ],
+    "colors": ["White", "Sky Blue", "Sage", "Natural", "Navy"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-025": {
+    "product_id": "PROD-025",
+    "name": "Leather Bifold Wallet",
+    "description": "Minimalist bifold wallet in full-grain leather with RFID blocking technology. Eight card slots and currency compartment.",
+    "price": 145.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "Full-grain leather",
+      "RFID blocking technology",
+      "Eight card slots",
+      "Two currency compartments",
+      "Hand-stitched edges",
+      "Made in Italy"
+    ],
+    "colors": ["Black", "Brown", "Navy", "Cognac"],
+    "sizes": ["One Size"]
+  },
+  "PROD-026": {
+    "product_id": "PROD-026",
+    "name": "Merino Training Tee",
+    "description": "Technical training t-shirt in merino wool blend. Moisture-wicking and odor-resistant for high-performance workouts.",
+    "price": 95.00,
+    "category": "Activewear",
+    "in_stock": true,
+    "features": [
+      "Merino wool blend",
+      "Moisture-wicking",
+      "Anti-odor technology",
+      "Flatlock seams",
+      "Athletic fit",
+      "Reflective details"
+    ],
+    "colors": ["Black", "Navy", "Charcoal", "White", "Olive"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-027": {
+    "product_id": "PROD-027",
+    "name": "Wool Flannel Trousers",
+    "description": "Classic wool flannel trousers with pleated front and cuffed hem. Traditional tailoring meets modern comfort.",
+    "price": 345.00,
+    "category": "Bottoms",
+    "in_stock": true,
+    "features": [
+      "Italian wool flannel",
+      "Forward pleats",
+      "Adjustable side tabs",
+      "Cuffed hem",
+      "Classic fit",
+      "Horn buttons"
+    ],
+    "colors": ["Grey", "Navy", "Charcoal", "Brown"],
+    "sizes": ["30", "31", "32", "33", "34", "36", "38", "40"]
+  },
+  "PROD-028": {
+    "product_id": "PROD-028",
+    "name": "Aviator Sunglasses",
+    "description": "Classic aviator sunglasses with polarized lenses and titanium frame. Includes leather case and cleaning cloth.",
+    "price": 295.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "Polarized lenses",
+      "Titanium frame",
+      "UV400 protection",
+      "Adjustable nose pads",
+      "Anti-reflective coating",
+      "Includes leather case"
+    ],
+    "colors": ["Gold/Green", "Silver/Grey", "Black/Grey"],
+    "sizes": ["One Size"]
+  },
+  "PROD-029": {
+    "product_id": "PROD-029",
+    "name": "Quilted Vest",
+    "description": "Diamond-quilted vest with lightweight insulation. Perfect transitional layer with zip-through collar.",
+    "price": 265.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Diamond quilted pattern",
+      "Synthetic insulation",
+      "Zip-through collar",
+      "Zippered side pockets",
+      "Interior pocket",
+      "Slim fit"
+    ],
+    "colors": ["Navy", "Black", "Olive", "Burgundy"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-030": {
+    "product_id": "PROD-030",
+    "name": "Cashmere Scarf",
+    "description": "Luxurious cashmere scarf with subtle texture. Lightweight yet incredibly warm for all-season wear.",
+    "price": 225.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "100% cashmere",
+      "Generous dimensions",
+      "Subtle texture weave",
+      "Fringed ends",
+      "Lightweight construction",
+      "Dry clean recommended"
+    ],
+    "colors": ["Camel", "Navy", "Charcoal", "Burgundy", "Grey"],
+    "sizes": ["One Size"]
+  },
+  "PROD-031": {
+    "product_id": "PROD-031",
+    "name": "Heavyweight Hoodie",
+    "description": "Premium heavyweight cotton hoodie with brushed interior. Modern cut with kangaroo pocket and adjustable drawcord.",
+    "price": 185.00,
+    "category": "Tops",
+    "in_stock": true,
+    "features": [
+      "Heavyweight cotton fleece",
+      "Brushed interior",
+      "Adjustable hood",
+      "Kangaroo pocket",
+      "Ribbed cuffs and hem",
+      "Pre-shrunk fabric"
+    ],
+    "colors": ["Black", "Navy", "Heather Grey", "Olive", "Burgundy"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-032": {
+    "product_id": "PROD-032",
+    "name": "Leather Driving Gloves",
+    "description": "Italian leather driving gloves with perforated details. Unlined for maximum tactile feedback.",
+    "price": 195.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "Italian lambskin leather",
+      "Perforated details",
+      "Unlined construction",
+      "Snap closure",
+      "Hand-stitched",
+      "Made in Italy"
+    ],
+    "colors": ["Black", "Cognac", "Navy"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  "PROD-033": {
+    "product_id": "PROD-033",
+    "name": "Performance Running Shorts",
+    "description": "Lightweight running shorts with built-in brief and zippered pocket. Quick-dry fabric with reflective trim.",
+    "price": 85.00,
+    "category": "Activewear",
+    "in_stock": true,
+    "features": [
+      "Quick-dry polyester",
+      "Built-in brief liner",
+      "Zippered back pocket",
+      "Reflective trim",
+      "Elastic waistband with drawstring",
+      "5-inch inseam"
+    ],
+    "colors": ["Black", "Navy", "Grey", "Red"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  "PROD-034": {
+    "product_id": "PROD-034",
+    "name": "Wool Peacoat",
+    "description": "Classic naval peacoat in heavyweight melton wool. Double-breasted with anchor-embossed buttons and wide lapels.",
+    "price": 895.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Heavyweight melton wool",
+      "Double-breasted closure",
+      "Anchor buttons",
+      "Wide peak lapels",
+      "Hand-warmer pockets",
+      "Satin lining"
+    ],
+    "colors": ["Navy", "Charcoal", "Black"],
+    "sizes": ["36", "38", "40", "42", "44", "46"]
+  },
+  "PROD-035": {
+    "product_id": "PROD-035",
+    "name": "Cotton-Linen Blend Chinos",
+    "description": "Breathable cotton-linen chinos with modern slim fit. Perfect for warm weather with natural stretch.",
+    "price": 165.00,
+    "category": "Bottoms",
+    "in_stock": true,
+    "features": [
+      "Cotton-linen blend",
+      "Slight stretch",
+      "Modern slim fit",
+      "Hidden security pocket",
+      "Button-through back pockets",
+      "Belt loops"
+    ],
+    "colors": ["Stone", "Navy", "Olive", "White", "Khaki"],
+    "sizes": ["28", "29", "30", "31", "32", "33", "34", "36", "38"]
+  },
+  "PROD-036": {
+    "product_id": "PROD-036",
+    "name": "Merino Zip Cardigan",
+    "description": "Versatile zip cardigan in merino wool with patch pockets. Perfect layering piece for any season.",
+    "price": 275.00,
+    "category": "Knitwear",
+    "in_stock": true,
+    "features": [
+      "100% merino wool",
+      "Full-zip closure",
+      "Patch pockets",
+      "Ribbed cuffs and hem",
+      "Regular fit",
+      "Machine washable"
+    ],
+    "colors": ["Navy", "Charcoal", "Olive", "Burgundy", "Grey"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-037": {
+    "product_id": "PROD-037",
+    "name": "Leather Messenger Bag",
+    "description": "Vintage-style messenger bag in vegetable-tanned leather. Features adjustable strap and protective laptop sleeve.",
+    "price": 895.00,
+    "category": "Accessories",
+    "in_stock": false,
+    "features": [
+      "Vegetable-tanned leather",
+      "Padded laptop compartment",
+      "Adjustable shoulder strap",
+      "Multiple interior pockets",
+      "Brass hardware",
+      "Develops rich patina"
+    ],
+    "colors": ["Cognac", "Black", "Dark Brown"],
+    "sizes": ["One Size"]
+  },
+  "PROD-038": {
+    "product_id": "PROD-038",
+    "name": "Technical Running Jacket",
+    "description": "Lightweight running jacket with water-resistant finish. Features reflective details and mesh ventilation panels.",
+    "price": 195.00,
+    "category": "Activewear",
+    "in_stock": true,
+    "features": [
+      "Water-resistant nylon",
+      "Mesh ventilation panels",
+      "Reflective details",
+      "Zippered chest pocket",
+      "Adjustable cuffs",
+      "Packable hood"
+    ],
+    "colors": ["Black", "Navy", "Grey", "Neon Yellow"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-039": {
+    "product_id": "PROD-039",
+    "name": "Corduroy Shirt Jacket",
+    "description": "Soft corduroy shirt jacket with patch pockets. Unlined for versatile layering throughout the year.",
+    "price": 245.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Cotton corduroy",
+      "Button-front closure",
+      "Chest patch pockets",
+      "Adjustable cuffs",
+      "Unlined",
+      "Regular fit"
+    ],
+    "colors": ["Camel", "Navy", "Forest Green", "Burgundy"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-040": {
+    "product_id": "PROD-040",
+    "name": "Swim Trunks",
+    "description": "Quick-dry swim trunks with mesh lining and drawstring waist. Features side and back pockets.",
+    "price": 125.00,
+    "category": "Swimwear",
+    "in_stock": true,
+    "features": [
+      "Quick-dry fabric",
+      "Mesh lining",
+      "Elastic waistband with drawstring",
+      "Side zip pocket",
+      "Back velcro pocket",
+      "7-inch inseam"
+    ],
+    "colors": ["Navy", "Black", "Teal", "Red", "Royal Blue"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-041": {
+    "product_id": "PROD-041",
+    "name": "Field Watch",
+    "description": "Automatic field watch with date complication and luminous hands. Features durable stainless steel case and leather strap.",
+    "price": 1495.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "Automatic movement",
+      "Date complication",
+      "Luminous hands and markers",
+      "Stainless steel case",
+      "Leather strap",
+      "100m water resistance"
+    ],
+    "colors": ["Black dial", "White dial", "Blue dial"],
+    "sizes": ["40mm"]
+  },
+  "PROD-042": {
+    "product_id": "PROD-042",
+    "name": "Fleece Pullover",
+    "description": "Midweight fleece pullover with quarter-snap placket. Technical fleece provides warmth without bulk.",
+    "price": 145.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Technical fleece",
+      "Quarter-snap placket",
+      "Zippered chest pocket",
+      "Hand-warmer pockets",
+      "Elastic cuffs and hem",
+      "Regular fit"
+    ],
+    "colors": ["Navy", "Black", "Charcoal", "Forest", "Stone"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-043": {
+    "product_id": "PROD-043",
+    "name": "Linen-Blend Blazer",
+    "description": "Unstructured blazer in linen-cotton blend. Perfect for warm weather with natural breathability.",
+    "price": 595.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Linen-cotton blend",
+      "Unstructured construction",
+      "Patch pockets",
+      "Two-button front",
+      "Partial lining",
+      "Regular fit"
+    ],
+    "colors": ["Navy", "Stone", "Light Grey", "Olive"],
+    "sizes": ["36R", "38R", "40R", "42R", "44R", "46R"]
+  },
+  "PROD-044": {
+    "product_id": "PROD-044",
+    "name": "Training Leggings",
+    "description": "Compression training leggings with moisture-wicking technology. Features zippered ankle cuffs and reflective details.",
+    "price": 115.00,
+    "category": "Activewear",
+    "in_stock": true,
+    "features": [
+      "Compression fit",
+      "Moisture-wicking",
+      "Zippered ankle cuffs",
+      "Zippered back pocket",
+      "Reflective details",
+      "Flat-lock seams"
+    ],
+    "colors": ["Black", "Navy", "Charcoal"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  "PROD-045": {
+    "product_id": "PROD-045",
+    "name": "Cashmere Beanie",
+    "description": "Pure cashmere beanie with ribbed construction. Incredibly soft with natural warmth.",
+    "price": 125.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "100% cashmere",
+      "Ribbed knit",
+      "Fold-over cuff",
+      "One size fits most",
+      "Hand wash recommended",
+      "Made in Scotland"
+    ],
+    "colors": ["Black", "Navy", "Charcoal", "Camel", "Burgundy"],
+    "sizes": ["One Size"]
+  },
+  "PROD-046": {
+    "product_id": "PROD-046",
+    "name": "Oxford Brogue Shoes",
+    "description": "Classic oxford brogues with full brogue detailing. Goodyear welted construction with leather soles.",
+    "price": 495.00,
+    "category": "Footwear",
+    "in_stock": true,
+    "features": [
+      "Full-grain calfskin",
+      "Full brogue detailing",
+      "Goodyear welt construction",
+      "Leather sole",
+      "Leather lining",
+      "Made in England"
+    ],
+    "colors": ["Black", "Brown", "Burgundy"],
+    "sizes": ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12"]
+  },
+  "PROD-047": {
+    "product_id": "PROD-047",
+    "name": "Graphic Tee",
+    "description": "Premium cotton t-shirt with screen-printed graphic. Pre-shrunk with reinforced neck and shoulders.",
+    "price": 75.00,
+    "category": "Tops",
+    "in_stock": true,
+    "features": [
+      "100% cotton",
+      "Screen-printed graphic",
+      "Pre-shrunk fabric",
+      "Reinforced neck",
+      "Regular fit",
+      "Ribbed crew neck"
+    ],
+    "colors": ["White", "Black", "Navy", "Grey"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-048": {
+    "product_id": "PROD-048",
+    "name": "Shawl Collar Cardigan",
+    "description": "Thick-knit cardigan with shawl collar and button closure. Features patch pockets and elbow patches.",
+    "price": 325.00,
+    "category": "Knitwear",
+    "in_stock": true,
+    "features": [
+      "Wool-cotton blend",
+      "Shawl collar",
+      "Button-front closure",
+      "Patch pockets",
+      "Suede elbow patches",
+      "Chunky knit"
+    ],
+    "colors": ["Navy", "Charcoal", "Oatmeal", "Forest"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-049": {
+    "product_id": "PROD-049",
+    "name": "Cargo Pants",
+    "description": "Modern cargo pants with tapered leg and multiple pockets. Constructed from durable cotton twill.",
+    "price": 185.00,
+    "category": "Bottoms",
+    "in_stock": true,
+    "features": [
+      "Cotton twill",
+      "Cargo pockets",
+      "Tapered leg",
+      "Zip fly closure",
+      "Belt loops",
+      "Regular fit"
+    ],
+    "colors": ["Olive", "Black", "Navy", "Khaki"],
+    "sizes": ["28", "29", "30", "31", "32", "33", "34", "36", "38"]
+  },
+  "PROD-050": {
+    "product_id": "PROD-050",
+    "name": "Leather Duffle Bag",
+    "description": "Full-grain leather weekend duffle with brass hardware. Features removable shoulder strap and interior organization.",
+    "price": 1295.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "Full-grain leather",
+      "Brass hardware",
+      "Removable shoulder strap",
+      "Canvas lining",
+      "Interior pockets",
+      "Bottom feet protection"
+    ],
+    "colors": ["Cognac", "Black", "Dark Brown"],
+    "sizes": ["One Size"]
+  },
+  "PROD-051": {
+    "product_id": "PROD-051",
+    "name": "Insulated Puffer Jacket",
+    "description": "Lightweight puffer jacket with synthetic insulation. Water-resistant shell with elastic cuffs.",
+    "price": 395.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Synthetic insulation",
+      "Water-resistant shell",
+      "Quilted construction",
+      "Elastic cuffs",
+      "Zippered pockets",
+      "Packable design"
+    ],
+    "colors": ["Black", "Navy", "Olive", "Charcoal"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-052": {
+    "product_id": "PROD-052",
+    "name": "Dress Socks",
+    "description": "Premium merino wool dress socks with reinforced heel and toe. Seamless construction for all-day comfort.",
+    "price": 35.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "Merino wool blend",
+      "Reinforced heel and toe",
+      "Seamless construction",
+      "Ribbed cuff",
+      "Over-the-calf length",
+      "Machine washable"
+    ],
+    "colors": ["Black", "Navy", "Charcoal", "Brown"],
+    "sizes": ["One Size"]
+  },
+  "PROD-053": {
+    "product_id": "PROD-053",
+    "name": "Chambray Work Shirt",
+    "description": "Classic chambray work shirt with chest pockets. Garment-washed for softness with vintage appeal.",
+    "price": 145.00,
+    "category": "Tops",
+    "in_stock": true,
+    "features": [
+      "Cotton chambray",
+      "Chest pockets with flaps",
+      "Garment-washed",
+      "Button-down collar",
+      "Regular fit",
+      "Pearl snap buttons"
+    ],
+    "colors": ["Light Blue", "Indigo", "Grey"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-054": {
+    "product_id": "PROD-054",
+    "name": "Wool Blend Joggers",
+    "description": "Elevated joggers in wool-blend fabric with tapered leg. Features elastic waistband and zip pockets.",
+    "price": 225.00,
+    "category": "Bottoms",
+    "in_stock": true,
+    "features": [
+      "Wool-polyester blend",
+      "Elastic waistband with drawstring",
+      "Zippered side pockets",
+      "Tapered leg",
+      "Ribbed ankle cuffs",
+      "Slim fit"
+    ],
+    "colors": ["Charcoal", "Navy", "Black", "Grey"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-055": {
+    "product_id": "PROD-055",
+    "name": "Hiking Boots",
+    "description": "Technical hiking boots with waterproof construction and Vibram sole. Full-grain leather uppers with gusseted tongue.",
+    "price": 395.00,
+    "category": "Footwear",
+    "in_stock": true,
+    "features": [
+      "Waterproof construction",
+      "Full-grain leather",
+      "Vibram sole",
+      "Gusseted tongue",
+      "Padded collar",
+      "Speed lacing system"
+    ],
+    "colors": ["Brown", "Black"],
+    "sizes": ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12", "13"]
+  },
+  "PROD-056": {
+    "product_id": "PROD-056",
+    "name": "V-Neck Sweater",
+    "description": "Classic V-neck sweater in extra-fine merino wool. Versatile layering piece with ribbed detailing.",
+    "price": 195.00,
+    "category": "Knitwear",
+    "in_stock": true,
+    "features": [
+      "Extra-fine merino wool",
+      "V-neck design",
+      "Ribbed cuffs and hem",
+      "Slim fit",
+      "Machine washable",
+      "Fully fashioned"
+    ],
+    "colors": ["Navy", "Charcoal", "Burgundy", "Forest", "Black"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-057": {
+    "product_id": "PROD-057",
+    "name": "Bomber Jacket",
+    "description": "Modern bomber jacket with MA-1 styling. Features ribbed knit collar, cuffs, and hem.",
+    "price": 395.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Nylon shell",
+      "Ribbed knit trim",
+      "Zip-front closure",
+      "Side zip pockets",
+      "Interior pocket",
+      "Regular fit"
+    ],
+    "colors": ["Black", "Navy", "Olive", "Burgundy"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-058": {
+    "product_id": "PROD-058",
+    "name": "Suede Weekender Bag",
+    "description": "Luxury weekender bag in Italian suede with leather trim. Features padded shoulder strap and multiple compartments.",
+    "price": 1495.00,
+    "category": "Accessories",
+    "in_stock": false,
+    "features": [
+      "Italian suede",
+      "Leather trim and handles",
+      "Padded shoulder strap",
+      "Multiple compartments",
+      "Brass hardware",
+      "Cotton canvas lining"
+    ],
+    "colors": ["Navy", "Tobacco", "Grey"],
+    "sizes": ["One Size"]
+  },
+  "PROD-059": {
+    "product_id": "PROD-059",
+    "name": "Compression Tank Top",
+    "description": "Performance compression tank with mesh panels. Quick-drying with anti-odor technology.",
+    "price": 75.00,
+    "category": "Activewear",
+    "in_stock": true,
+    "features": [
+      "Compression fit",
+      "Mesh panels",
+      "Moisture-wicking",
+      "Anti-odor technology",
+      "Flatlock seams",
+      "Racerback design"
+    ],
+    "colors": ["Black", "Navy", "White", "Charcoal"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  "PROD-060": {
+    "product_id": "PROD-060",
+    "name": "Cashmere Gloves",
+    "description": "Pure cashmere gloves with touchscreen-compatible fingertips. Ultra-soft with ribbed cuffs.",
+    "price": 145.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "100% cashmere",
+      "Touchscreen compatible",
+      "Ribbed cuffs",
+      "Seamless construction",
+      "Hand wash only",
+      "Made in Scotland"
+    ],
+    "colors": ["Black", "Charcoal", "Navy", "Camel"],
+    "sizes": ["S/M", "L/XL"]
+  },
+  "PROD-061": {
+    "product_id": "PROD-061",
+    "name": "Tweed Sport Coat",
+    "description": "Traditional Harris Tweed sport coat with leather elbow patches. Classic herringbone pattern.",
+    "price": 895.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Harris Tweed wool",
+      "Herringbone pattern",
+      "Leather elbow patches",
+      "Two-button front",
+      "Side vents",
+      "Full lining"
+    ],
+    "colors": ["Brown", "Grey", "Navy"],
+    "sizes": ["38R", "40R", "42R", "44R", "46R"]
+  },
+  "PROD-062": {
+    "product_id": "PROD-062",
+    "name": "Stripe T-Shirt",
+    "description": "Breton stripe t-shirt in heavyweight cotton. Classic nautical style with boat neck.",
+    "price": 95.00,
+    "category": "Tops",
+    "in_stock": true,
+    "features": [
+      "Heavyweight cotton",
+      "Breton stripes",
+      "Boat neck",
+      "Three-quarter sleeves",
+      "Relaxed fit",
+      "Pre-shrunk"
+    ],
+    "colors": ["Navy/White", "Black/White", "Red/White"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-063": {
+    "product_id": "PROD-063",
+    "name": "Moleskin Pants",
+    "description": "Soft moleskin trousers with modern slim fit. Features forward pleats and adjustable waist tabs.",
+    "price": 295.00,
+    "category": "Bottoms",
+    "in_stock": true,
+    "features": [
+      "Cotton moleskin",
+      "Forward pleats",
+      "Adjustable side tabs",
+      "Flat front option",
+      "Belt loops",
+      "Modern slim fit"
+    ],
+    "colors": ["Tobacco", "Olive", "Navy", "Charcoal"],
+    "sizes": ["30", "31", "32", "33", "34", "36", "38"]
+  },
+  "PROD-064": {
+    "product_id": "PROD-064",
+    "name": "Loafers",
+    "description": "Penny loafers in hand-burnished leather. Blake stitched with leather soles and penny keeper.",
+    "price": 395.00,
+    "category": "Footwear",
+    "in_stock": true,
+    "features": [
+      "Hand-burnished leather",
+      "Blake stitched construction",
+      "Leather sole",
+      "Penny keeper detail",
+      "Leather lining",
+      "Cushioned insole"
+    ],
+    "colors": ["Brown", "Black", "Burgundy"],
+    "sizes": ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12"]
+  },
+  "PROD-065": {
+    "product_id": "PROD-065",
+    "name": "Cable Knit Cardigan",
+    "description": "Chunky cable knit cardigan in wool-blend yarn. Features shawl collar and leather buttons.",
+    "price": 395.00,
+    "category": "Knitwear",
+    "in_stock": true,
+    "features": [
+      "Wool-blend yarn",
+      "Cable knit pattern",
+      "Shawl collar",
+      "Leather buttons",
+      "Patch pockets",
+      "Regular fit"
+    ],
+    "colors": ["Oatmeal", "Navy", "Charcoal", "Forest"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-066": {
+    "product_id": "PROD-066",
+    "name": "Waxed Canvas Jacket",
+    "description": "Heritage waxed canvas field jacket with corduroy collar. Features multiple pockets and brass hardware.",
+    "price": 495.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Waxed canvas shell",
+      "Corduroy collar",
+      "Brass hardware",
+      "Multiple pockets",
+      "Adjustable cuffs",
+      "Interior pocket"
+    ],
+    "colors": ["Tan", "Navy", "Olive"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-067": {
+    "product_id": "PROD-067",
+    "name": "Backpack",
+    "description": "Canvas and leather backpack with padded laptop compartment. Roll-top closure with leather straps.",
+    "price": 395.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "Waxed canvas",
+      "Leather trim",
+      "Padded laptop sleeve",
+      "Roll-top closure",
+      "Adjustable straps",
+      "Interior organization"
+    ],
+    "colors": ["Black", "Navy", "Olive", "Grey"],
+    "sizes": ["One Size"]
+  },
+  "PROD-068": {
+    "product_id": "PROD-068",
+    "name": "Performance Polo",
+    "description": "Technical polo shirt with moisture-wicking fabric and UV protection. Ribbed collar and cuffs.",
+    "price": 125.00,
+    "category": "Activewear",
+    "in_stock": true,
+    "features": [
+      "Moisture-wicking polyester",
+      "UPF 50+ protection",
+      "Anti-odor technology",
+      "Ribbed collar and cuffs",
+      "Three-button placket",
+      "Athletic fit"
+    ],
+    "colors": ["White", "Navy", "Black", "Grey", "Red"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-069": {
+    "product_id": "PROD-069",
+    "name": "Wool Baseball Cap",
+    "description": "Structured baseball cap in melton wool. Features leather strap adjustment and brass buckle.",
+    "price": 95.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "Melton wool",
+      "Structured six-panel construction",
+      "Leather strap adjustment",
+      "Brass buckle",
+      "Sweatband",
+      "Curved brim"
+    ],
+    "colors": ["Navy", "Charcoal", "Olive", "Burgundy"],
+    "sizes": ["One Size"]
+  },
+  "PROD-070": {
+    "product_id": "PROD-070",
+    "name": "Formal Dress Shirt",
+    "description": "Formal dress shirt in premium cotton with French cuffs. Spread collar and hidden placket.",
+    "price": 195.00,
+    "category": "Tops",
+    "in_stock": true,
+    "features": [
+      "100% cotton",
+      "French cuffs",
+      "Spread collar",
+      "Hidden button placket",
+      "Slim fit",
+      "Tailored cut"
+    ],
+    "colors": ["White", "Light Blue"],
+    "sizes": ["14.5/32", "15/33", "15.5/33", "15.5/34", "16/34", "16/35", "16.5/35", "17/35", "17.5/36"]
+  },
+  "PROD-071": {
+    "product_id": "PROD-071",
+    "name": "Sweatpants",
+    "description": "Premium heavyweight sweatpants with brushed interior. Features elastic waistband and cuffed ankles.",
+    "price": 165.00,
+    "category": "Bottoms",
+    "in_stock": true,
+    "features": [
+      "Heavyweight cotton fleece",
+      "Brushed interior",
+      "Elastic waistband with drawstring",
+      "Side pockets",
+      "Ribbed ankle cuffs",
+      "Regular fit"
+    ],
+    "colors": ["Heather Grey", "Black", "Navy", "Charcoal"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-072": {
+    "product_id": "PROD-072",
+    "name": "Running Shoes",
+    "description": "Lightweight running shoes with responsive cushioning. Breathable mesh upper with supportive overlays.",
+    "price": 195.00,
+    "category": "Footwear",
+    "in_stock": true,
+    "features": [
+      "Breathable mesh upper",
+      "Responsive cushioning",
+      "Carbon fiber plate",
+      "Rubber outsole",
+      "Reflective details",
+      "Lightweight construction"
+    ],
+    "colors": ["Black", "White", "Navy", "Grey"],
+    "sizes": ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12", "13"]
+  },
+  "PROD-073": {
+    "product_id": "PROD-073",
+    "name": "Fair Isle Sweater",
+    "description": "Traditional Fair Isle sweater in pure wool. Hand-knitted patterns with crew neck.",
+    "price": 295.00,
+    "category": "Knitwear",
+    "in_stock": true,
+    "features": [
+      "100% wool",
+      "Traditional Fair Isle pattern",
+      "Crew neck",
+      "Ribbed cuffs and hem",
+      "Regular fit",
+      "Hand wash recommended"
+    ],
+    "colors": ["Navy/Multi", "Charcoal/Multi", "Burgundy/Multi"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-074": {
+    "product_id": "PROD-074",
+    "name": "Harrington Jacket",
+    "description": "Classic Harrington jacket with Fraser tartan lining. Features ribbed collar and cuffs.",
+    "price": 325.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Water-resistant cotton",
+      "Fraser tartan lining",
+      "Ribbed collar and cuffs",
+      "Zip-front closure",
+      "Side pockets",
+      "Regular fit"
+    ],
+    "colors": ["Navy", "Black", "Stone", "Burgundy"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-075": {
+    "product_id": "PROD-075",
+    "name": "Leather Card Holder",
+    "description": "Slim card holder in full-grain leather with RFID protection. Features three card slots.",
+    "price": 85.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "Full-grain leather",
+      "RFID blocking",
+      "Three card slots",
+      "Center cash pocket",
+      "Hand-stitched edges",
+      "Made in Italy"
+    ],
+    "colors": ["Black", "Brown", "Navy", "Cognac"],
+    "sizes": ["One Size"]
+  },
+  "PROD-076": {
+    "product_id": "PROD-076",
+    "name": "Cycling Bibs",
+    "description": "Performance cycling bibs with chamois padding. Compression fabric with mesh bib straps.",
+    "price": 195.00,
+    "category": "Activewear",
+    "in_stock": true,
+    "features": [
+      "Compression lycra",
+      "Italian chamois padding",
+      "Mesh bib straps",
+      "Flatlock seams",
+      "Reflective details",
+      "Anti-slip leg grippers"
+    ],
+    "colors": ["Black", "Navy"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  "PROD-077": {
+    "product_id": "PROD-077",
+    "name": "Flannel Shirt",
+    "description": "Heavyweight flannel shirt in brushed cotton. Classic plaid pattern with chest pockets.",
+    "price": 135.00,
+    "category": "Tops",
+    "in_stock": true,
+    "features": [
+      "Brushed cotton flannel",
+      "Classic plaid pattern",
+      "Chest pockets with flaps",
+      "Button-down collar",
+      "Regular fit",
+      "Pre-washed"
+    ],
+    "colors": ["Red Plaid", "Navy Plaid", "Green Plaid", "Grey Plaid"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-078": {
+    "product_id": "PROD-078",
+    "name": "Drawstring Shorts",
+    "description": "Casual drawstring shorts in garment-washed cotton. Features elastic waistband and side pockets.",
+    "price": 115.00,
+    "category": "Bottoms",
+    "in_stock": true,
+    "features": [
+      "Garment-washed cotton",
+      "Elastic waistband with drawstring",
+      "Side pockets",
+      "Back patch pocket",
+      "9-inch inseam",
+      "Relaxed fit"
+    ],
+    "colors": ["Navy", "Khaki", "Olive", "Stone", "Black"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-079": {
+    "product_id": "PROD-079",
+    "name": "Winter Boots",
+    "description": "Insulated winter boots with waterproof construction. Sheepskin lining and lugged rubber sole.",
+    "price": 495.00,
+    "category": "Footwear",
+    "in_stock": true,
+    "features": [
+      "Waterproof leather",
+      "Sheepskin lining",
+      "Lugged rubber sole",
+      "Insulated construction",
+      "Lace-up closure",
+      "Padded collar"
+    ],
+    "colors": ["Black", "Brown"],
+    "sizes": ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12"]
+  },
+  "PROD-080": {
+    "product_id": "PROD-080",
+    "name": "Ribbed Tank Top",
+    "description": "Ribbed cotton tank top with athletic fit. Classic undershirt or standalone summer piece.",
+    "price": 55.00,
+    "category": "Tops",
+    "in_stock": true,
+    "features": [
+      "Ribbed cotton",
+      "Athletic fit",
+      "Reinforced straps",
+      "Crew neck",
+      "Pre-shrunk",
+      "Machine washable"
+    ],
+    "colors": ["White", "Black", "Navy", "Grey"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-081": {
+    "product_id": "PROD-081",
+    "name": "Shearling Jacket",
+    "description": "Genuine shearling jacket with suede exterior. Features zip-front closure and side pockets.",
+    "price": 1895.00,
+    "category": "Outerwear",
+    "in_stock": false,
+    "features": [
+      "Genuine shearling",
+      "Suede exterior",
+      "Zip-front closure",
+      "Side pockets",
+      "Ribbed knit collar",
+      "Professional clean only"
+    ],
+    "colors": ["Brown", "Black"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  "PROD-082": {
+    "product_id": "PROD-082",
+    "name": "Chronograph Watch",
+    "description": "Automatic chronograph with three sub-dials. Stainless steel case with exhibition caseback.",
+    "price": 2995.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "Automatic chronograph movement",
+      "Three sub-dials",
+      "Exhibition caseback",
+      "Sapphire crystal",
+      "Stainless steel case and bracelet",
+      "100m water resistance"
+    ],
+    "colors": ["Silver dial", "Black dial", "Blue dial"],
+    "sizes": ["42mm"]
+  },
+  "PROD-083": {
+    "product_id": "PROD-083",
+    "name": "Basketball Shorts",
+    "description": "Performance basketball shorts with mesh construction. Features elastic waistband and side pockets.",
+    "price": 75.00,
+    "category": "Activewear",
+    "in_stock": true,
+    "features": [
+      "Mesh polyester",
+      "Elastic waistband with drawstring",
+      "Side pockets",
+      "Moisture-wicking",
+      "11-inch inseam",
+      "Loose fit"
+    ],
+    "colors": ["Black", "Navy", "Grey", "Red", "White"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-084": {
+    "product_id": "PROD-084",
+    "name": "Merino Base Layer Bottoms",
+    "description": "Merino wool base layer bottoms with flatlock seams. Temperature-regulating and odor-resistant.",
+    "price": 135.00,
+    "category": "Base Layers",
+    "in_stock": true,
+    "features": [
+      "100% merino wool",
+      "Flatlock seams",
+      "Temperature regulating",
+      "Odor-resistant",
+      "Elastic waistband",
+      "Fly opening"
+    ],
+    "colors": ["Black", "Charcoal", "Navy"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  "PROD-085": {
+    "product_id": "PROD-085",
+    "name": "Leather Jacket",
+    "description": "Moto-style leather jacket in full-grain cowhide. Features asymmetric zip and quilted shoulders.",
+    "price": 1295.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Full-grain cowhide",
+      "Asymmetric zip closure",
+      "Quilted shoulders",
+      "Zippered pockets",
+      "Belted waist",
+      "Satin lining"
+    ],
+    "colors": ["Black", "Brown"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-086": {
+    "product_id": "PROD-086",
+    "name": "Suede Bomber",
+    "description": "Luxurious suede bomber jacket with ribbed trim. Features zip-front closure and side pockets.",
+    "price": 995.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Italian suede",
+      "Ribbed knit trim",
+      "Zip-front closure",
+      "Side zip pockets",
+      "Interior pocket",
+      "Satin lining"
+    ],
+    "colors": ["Navy", "Olive", "Grey"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  "PROD-087": {
+    "product_id": "PROD-087",
+    "name": "Crew Neck Tee",
+    "description": "Essential crew neck t-shirt in premium cotton. Regular fit with reinforced seams.",
+    "price": 65.00,
+    "category": "Tops",
+    "in_stock": true,
+    "features": [
+      "Premium cotton",
+      "Crew neck",
+      "Regular fit",
+      "Reinforced seams",
+      "Pre-shrunk",
+      "Double-needle hem"
+    ],
+    "colors": ["White", "Black", "Navy", "Grey", "Olive"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-088": {
+    "product_id": "PROD-088",
+    "name": "Five-Pocket Jeans",
+    "description": "Classic five-pocket jeans in stretch denim. Modern slim fit with fading at stress points.",
+    "price": 195.00,
+    "category": "Bottoms",
+    "in_stock": true,
+    "features": [
+      "Stretch denim",
+      "Five-pocket styling",
+      "Zip fly",
+      "Belt loops",
+      "Modern slim fit",
+      "Subtle fading"
+    ],
+    "colors": ["Dark Wash", "Medium Wash", "Light Wash", "Black"],
+    "sizes": ["28", "29", "30", "31", "32", "33", "34", "36", "38"]
+  },
+  "PROD-089": {
+    "product_id": "PROD-089",
+    "name": "Derby Shoes",
+    "description": "Classic derby shoes with cap toe. Hand-finished leather with Goodyear welt construction.",
+    "price": 495.00,
+    "category": "Footwear",
+    "in_stock": true,
+    "features": [
+      "Full-grain calfskin",
+      "Cap toe design",
+      "Goodyear welt construction",
+      "Leather sole",
+      "Padded insole",
+      "Made in Italy"
+    ],
+    "colors": ["Black", "Brown"],
+    "sizes": ["7", "7.5", "8", "8.5", "9", "9.5", "10", "10.5", "11", "11.5", "12"]
+  },
+  "PROD-090": {
+    "product_id": "PROD-090",
+    "name": "Zip-Up Hoodie",
+    "description": "Full-zip hoodie in heavyweight cotton fleece. Features kangaroo pockets and drawstring hood.",
+    "price": 165.00,
+    "category": "Tops",
+    "in_stock": true,
+    "features": [
+      "Heavyweight cotton fleece",
+      "Full-zip closure",
+      "Drawstring hood",
+      "Kangaroo pockets",
+      "Ribbed cuffs and hem",
+      "Pre-shrunk"
+    ],
+    "colors": ["Heather Grey", "Black", "Navy", "Charcoal"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-091": {
+    "product_id": "PROD-091",
+    "name": "Quilted Jacket",
+    "description": "Lightweight quilted jacket with synthetic fill. Diamond pattern with corduroy collar.",
+    "price": 325.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Quilted nylon shell",
+      "Synthetic fill",
+      "Corduroy collar",
+      "Snap-front closure",
+      "Side pockets",
+      "Regular fit"
+    ],
+    "colors": ["Navy", "Olive", "Black", "Burgundy"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-092": {
+    "product_id": "PROD-092",
+    "name": "Toiletry Bag",
+    "description": "Leather toiletry bag with waterproof lining. Features multiple compartments and hanging hook.",
+    "price": 195.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "Full-grain leather",
+      "Waterproof lining",
+      "Multiple compartments",
+      "Hanging hook",
+      "Zip closure",
+      "Made in Italy"
+    ],
+    "colors": ["Black", "Brown", "Navy"],
+    "sizes": ["One Size"]
+  },
+  "PROD-093": {
+    "product_id": "PROD-093",
+    "name": "Tennis Shorts",
+    "description": "Performance tennis shorts with built-in compression liner. Features side pockets and elastic waistband.",
+    "price": 95.00,
+    "category": "Activewear",
+    "in_stock": true,
+    "features": [
+      "Moisture-wicking fabric",
+      "Built-in compression liner",
+      "Side pockets",
+      "Elastic waistband",
+      "7-inch inseam",
+      "Athletic fit"
+    ],
+    "colors": ["Navy", "Black", "White"],
+    "sizes": ["S", "M", "L", "XL"]
+  },
+  "PROD-094": {
+    "product_id": "PROD-094",
+    "name": "Argyle Sweater",
+    "description": "Classic argyle sweater in merino wool blend. V-neck design with ribbed trim.",
+    "price": 225.00,
+    "category": "Knitwear",
+    "in_stock": true,
+    "features": [
+      "Merino wool blend",
+      "Argyle pattern",
+      "V-neck design",
+      "Ribbed collar and cuffs",
+      "Regular fit",
+      "Machine washable"
+    ],
+    "colors": ["Navy/Grey", "Burgundy/Cream", "Charcoal/Blue"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-095": {
+    "product_id": "PROD-095",
+    "name": "Work Jacket",
+    "description": "Durable canvas work jacket with multiple pockets. Reinforced construction with brass hardware.",
+    "price": 295.00,
+    "category": "Outerwear",
+    "in_stock": true,
+    "features": [
+      "Heavy canvas",
+      "Multiple tool pockets",
+      "Brass hardware",
+      "Reinforced stress points",
+      "Adjustable cuffs",
+      "Blanket lining"
+    ],
+    "colors": ["Tan", "Navy", "Black"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-096": {
+    "product_id": "PROD-096",
+    "name": "Pocket Square",
+    "description": "Silk pocket square with hand-rolled edges. Classic patterns for formal occasions.",
+    "price": 65.00,
+    "category": "Accessories",
+    "in_stock": true,
+    "features": [
+      "100% silk",
+      "Hand-rolled edges",
+      "Classic patterns",
+      "12-inch square",
+      "Dry clean only",
+      "Made in Italy"
+    ],
+    "colors": ["Navy Paisley", "White Linen", "Burgundy Dot", "Grey Stripe"],
+    "sizes": ["One Size"]
+  },
+  "PROD-097": {
+    "product_id": "PROD-097",
+    "name": "Training Jacket",
+    "description": "Lightweight training jacket with mesh lining. Features full-zip closure and side pockets.",
+    "price": 145.00,
+    "category": "Activewear",
+    "in_stock": true,
+    "features": [
+      "Polyester shell",
+      "Mesh lining",
+      "Full-zip closure",
+      "Side zip pockets",
+      "Elastic cuffs",
+      "Regular fit"
+    ],
+    "colors": ["Black", "Navy", "Grey", "Royal Blue"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-098": {
+    "product_id": "PROD-098",
+    "name": "Henley Shirt",
+    "description": "Long-sleeve henley in soft cotton jersey. Features three-button placket and ribbed cuffs.",
+    "price": 95.00,
+    "category": "Tops",
+    "in_stock": true,
+    "features": [
+      "Cotton jersey",
+      "Three-button placket",
+      "Ribbed cuffs",
+      "Regular fit",
+      "Pre-shrunk",
+      "Machine washable"
+    ],
+    "colors": ["White", "Black", "Navy", "Charcoal", "Burgundy"],
+    "sizes": ["S", "M", "L", "XL", "XXL"]
+  },
+  "PROD-099": {
+    "product_id": "PROD-099",
+    "name": "Corduroy Trousers",
+    "description": "Fine-wale corduroy trousers with flat-front styling. Modern slim fit with stretch.",
+    "price": 195.00,
+    "category": "Bottoms",
+    "in_stock": true,
+    "features": [
+      "Fine-wale corduroy",
+      "Stretch cotton",
+      "Flat-front styling",
+      "Zip fly",
+      "Modern slim fit",
+      "Belt loops"
+    ],
+    "colors": ["Navy", "Olive", "Burgundy", "Tan"],
+    "sizes": ["30", "31", "32", "33", "34", "36", "38"]
+  },
+  "PROD-100": {
+    "product_id": "PROD-100",
+    "name": "Espadrilles",
+    "description": "Canvas espadrilles with jute rope sole. Slip-on design perfect for casual summer wear.",
+    "price": 125.00,
+    "category": "Footwear",
+    "in_stock": true,
+    "features": [
+      "Canvas upper",
+      "Jute rope sole",
+      "Slip-on design",
+      "Elastic side goring",
+      "Padded insole",
+      "Casual fit"
+    ],
+    "colors": ["Navy", "Black", "Beige", "Grey"],
+    "sizes": ["7", "8", "9", "10", "11", "12"]
   }
 }
