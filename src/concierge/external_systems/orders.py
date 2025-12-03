@@ -104,11 +104,11 @@ class OrdersAPI:
 
     def make_order(self, user_id: str, items: list[OrderItem]) -> dict[str, str | OrderDetails]:
         """
-        Create a new order for a user.
+        Create a new order for a user with the specified items. Each OrderItem must include product_id (format: PROD-XXX), name, quantity, and price. Use search_products first to find products and get accurate product details (product_id, name, price) before creating an order.
 
         Args:
             user_id: The unique user identifier
-            items: List of OrderItem objects to include in the order
+            items: List of OrderItem objects, each containing product_id (e.g., "PROD-001"), name, quantity, and price
 
         Returns:
             Dictionary with success status, message, and order details if successful

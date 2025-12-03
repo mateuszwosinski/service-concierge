@@ -112,13 +112,13 @@ class AppointmentsAPI:
 
     def get_appointments_by_email(self, email: str) -> list[AppointmentInfo]:
         """
-        Retrieve all appointments for a user by email.
+        Retrieve all appointments for a user by their email address. Use this to check a client's existing appointments, including scheduled, confirmed, completed, or cancelled appointments.
 
         Args:
-            email: User's email address
+            email: User's email address (e.g., "client@example.com")
 
         Returns:
-            List of AppointmentInfo objects
+            List of AppointmentInfo objects with complete appointment details
         """
         apt_ids = self._email_index.get(email, [])
         return [self._appointments[apt_id] for apt_id in apt_ids if apt_id in self._appointments]
@@ -138,7 +138,7 @@ class AppointmentsAPI:
 
     def schedule_appointment(self, email: str, phone: str, date: str, time: str, service_type: str) -> dict[str, str]:
         """
-        Schedule a new appointment.
+        Schedule a new appointment for services like Personal Styling Session, Tailoring and Fitting, Wardrobe Consultation, Custom Fitting, VIP Styling Experience, or Alteration Pickup. Automatically checks for conflicts and prevents double-booking.
 
         Business Logic:
         - Date must be in the future
@@ -146,10 +146,10 @@ class AppointmentsAPI:
 
         Args:
             email: User's email address
-            phone: User's phone number
+            phone: User's phone number (format: +1-555-0101)
             date: Appointment date in YYYY-MM-DD format
-            time: Appointment time in HH:MM format
-            service_type: Type of service
+            time: Appointment time in HH:MM 24-hour format
+            service_type: Type of service (e.g., "Personal Styling Session", "Tailoring and Fitting")
 
         Returns:
             Dictionary with success status, message, and appointment_id if successful
