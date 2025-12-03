@@ -35,10 +35,10 @@ class KnowledgeAPI:
 
     def search_products(self, query: str) -> list[Product]:
         """
-        Search products by name, description, category, or features. Use this when clients mention product names or descriptions (e.g., "merino jacket", "leather bag", "winter coats"). This searches across all product fields and returns full product details including product_id. ALWAYS use this function first when clients describe what they're looking for, rather than trying to construct or guess a product_id.
+        Search products by name, description, category, features, colors, or sizes. Use this when clients mention product names or descriptions (e.g., "merino jacket", "leather bag", "winter coats", "black sweater", "size L"). This searches across all product fields and returns full product details including product_id. ALWAYS use this function first when clients describe what they're looking for, rather than trying to construct or guess a product_id.
 
         Args:
-            query: Search query string (product name, description, category, or feature keywords)
+            query: Search query string (product name, description, category, feature keywords, colors, or sizes)
 
         Returns:
             List of matching Product objects with complete details (including product_id), sorted by relevance
@@ -66,6 +66,16 @@ class KnowledgeAPI:
                 if query_lower in feature.lower():
                     score += 2.0
 
+            # Check colors match
+            for color in product.colors:
+                if query_lower in color.lower():
+                    score += 4.0
+
+            # Check sizes match
+            for size in product.sizes:
+                if query_lower in size.lower() or query_lower == size.lower():
+                    score += 3.0
+
             # Keyword matching for individual words
             query_words = query_lower.split()
             for word in query_words:
@@ -74,6 +84,14 @@ class KnowledgeAPI:
                         score += 1.0
                     if word in product.description.lower():
                         score += 0.5
+                    # Check if word matches any color
+                    for color in product.colors:
+                        if word == color.lower():
+                            score += 2.0
+                    # Check if word matches any size
+                    for size in product.sizes:
+                        if word == size.lower():
+                            score += 1.5
 
             if score > 0:
                 results.append((product, score))

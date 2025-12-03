@@ -55,6 +55,8 @@ class Product(BaseModel):
     category: str
     in_stock: bool
     features: list[str]
+    colors: list[str]
+    sizes: list[str]
 
 
 class PolicyDocument(BaseModel):
