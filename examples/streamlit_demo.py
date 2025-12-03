@@ -5,7 +5,9 @@ To run this demo:
 2. Run: streamlit run examples/streamlit_demo.py
 """
 
+import json
 import uuid
+from pathlib import Path
 
 import streamlit as st
 from dotenv import load_dotenv
@@ -27,6 +29,15 @@ st.set_page_config(
 def get_agent() -> Agent:
     """Initialize and cache the Agent."""
     return Agent()
+
+
+# Load example users
+@st.cache_data
+def load_users() -> dict:
+    """Load example users from JSON file."""
+    users_path = Path(__file__).parent.parent / "data" / "users.json"
+    with users_path.open() as f:
+        return json.load(f)
 
 
 # Initialize session state
@@ -83,12 +94,26 @@ with st.sidebar:
 
     st.divider()
 
+    st.header("Example Users")
+    st.markdown("Reference these users when testing:")
+
+    users = load_users()
+    for _, user_data in users.items():
+        with st.expander(f"👤 {user_data['name']}", expanded=False):
+            st.markdown(f"""
+            **User ID:** `{user_data["user_id"]}`
+            **Email:** `{user_data["email"]}`
+            **Phone:** `{user_data["phone"]}`
+            """)
+
+    st.divider()
+
     st.header("Sample Queries")
     st.markdown("""
     Try asking:
     - "Show me merino wool jackets"
     - "What's the status of order ORD-001?"
-    - "Schedule a fitting appointment"
+    - "Show appointments for john.doe@example.com"
     - "What's your return policy?"
     - "I need a new suit and want to book a fitting"
     """)
