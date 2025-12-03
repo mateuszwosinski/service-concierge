@@ -1,0 +1,32 @@
+{
+  "user_123": {
+    "user_id": "user_123",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "+1-555-0101"
+  },
+  "user_456": {
+    "user_id": "user_456",
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "phone": "+1-555-0102"
+  },
+  "user_789": {
+    "user_id": "user_789",
+    "name": "Bob Wilson",
+    "email": "bob.wilson@example.com",
+    "phone": "+1-555-0103"
+  },
+  "user_001": {
+    "user_id": "user_001",
+    "name": "Alice Brown",
+    "email": "alice.brown@example.com",
+    "phone": "+1-555-0104"
+  },
+  "user_002": {
+    "user_id": "user_002",
+    "name": "Michael Chen",
+    "email": "michael.chen@example.com",
+    "phone": "+1-555-0105"
+  }
+}

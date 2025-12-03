@@ -35,6 +35,7 @@ class AppointmentInfo(BaseModel):
     """Appointment information."""
 
     appointment_id: str
+    user_id: str
     user_email: str
     user_phone: str
     date: str = Field(description="Date in YYYY-MM-DD format")

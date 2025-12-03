@@ -1,9 +1,11 @@
 """Mock Orders API for managing order queries and modifications."""
 
+import json
 from datetime import datetime
 from typing import Optional
 
 from concierge.datatypes.general_types import OrderDetails, OrderItem
+from concierge.paths import ORDERS_DATA_PATH
 
 
 class OrdersAPI:
@@ -15,67 +17,19 @@ class OrdersAPI:
 
     @staticmethod
     def _initialize_mock_orders() -> dict[str, OrderDetails]:
-        """Create mock order data."""
-        return {
-            "ORD-001": OrderDetails(
-                order_id="ORD-001",
-                user_id="user_123",
-                items=[
-                    OrderItem(product_id="PROD-002", name="Technical Cashmere Sweater", quantity=1, price=485.00),
-                    OrderItem(product_id="PROD-007", name="Merino Wool Base Layer Set", quantity=2, price=245.00),
-                ],
-                total_amount=975.00,
-                status="shipped",
-                created_at="2025-11-25T10:30:00",
-                updated_at="2025-11-26T14:20:00",
-            ),
-            "ORD-002": OrderDetails(
-                order_id="ORD-002",
-                user_id="user_456",
-                items=[
-                    OrderItem(product_id="PROD-001", name="Merino Wool Performance Jacket", quantity=1, price=895.00),
-                ],
-                total_amount=895.00,
-                status="processing",
-                created_at="2025-11-28T09:15:00",
-                updated_at="2025-11-28T09:15:00",
-            ),
-            "ORD-003": OrderDetails(
-                order_id="ORD-003",
-                user_id="user_789",
-                items=[
-                    OrderItem(product_id="PROD-004", name="Performance Stretch Trousers", quantity=2, price=395.00),
-                    OrderItem(product_id="PROD-008", name="Premium Leather Chelsea Boots", quantity=1, price=725.00),
-                ],
-                total_amount=1515.00,
-                status="delivered",
-                created_at="2025-11-20T16:45:00",
-                updated_at="2025-11-24T11:30:00",
-            ),
-            "ORD-004": OrderDetails(
-                order_id="ORD-004",
-                user_id="user_123",
-                items=[
-                    OrderItem(product_id="PROD-006", name="Swiss Automatic Watch", quantity=1, price=2850.00),
-                ],
-                total_amount=2850.00,
-                status="pending",
-                created_at="2025-11-30T13:20:00",
-                updated_at="2025-11-30T13:20:00",
-            ),
-            "ORD-005": OrderDetails(
-                order_id="ORD-005",
-                user_id="user_456",
-                items=[
-                    OrderItem(product_id="PROD-005", name="Lightweight Down Vest", quantity=1, price=325.00),
-                    OrderItem(product_id="PROD-003", name="Heritage Leather Weekender Bag", quantity=1, price=1250.00),
-                ],
-                total_amount=1575.00,
-                status="pending",
-                created_at="2025-12-01T14:45:00",
-                updated_at="2025-12-01T14:45:00",
-            ),
-        }
+        """Load mock order data from JSON file."""
+        data_path = ORDERS_DATA_PATH
+        with data_path.open() as f:
+            orders_data = json.load(f)
+
+        orders = {}
+        for order_id, order_dict in orders_data.items():
+            # Convert items to OrderItem objects
+            items = [OrderItem(**item) for item in order_dict["items"]]
+            order_dict["items"] = items
+            orders[order_id] = OrderDetails(**order_dict)
+
+        return orders
 
     def get_order(self, order_id: str) -> Optional[OrderDetails]:
         """

@@ -1,0 +1,68 @@
+{
+  "APT-001": {
+    "appointment_id": "APT-001",
+    "user_id": "user_123",
+    "user_email": "john.doe@example.com",
+    "user_phone": "+1-555-0101",
+    "date": "2025-12-05",
+    "time": "10:00",
+    "service_type": "Personal Styling Session",
+    "status": "scheduled",
+    "created_at": "2025-11-25T09:00:00"
+  },
+  "APT-002": {
+    "appointment_id": "APT-002",
+    "user_id": "user_456",
+    "user_email": "jane.smith@example.com",
+    "user_phone": "+1-555-0102",
+    "date": "2025-12-06",
+    "time": "14:30",
+    "service_type": "Tailoring and Fitting",
+    "status": "confirmed",
+    "created_at": "2025-11-26T11:30:00"
+  },
+  "APT-003": {
+    "appointment_id": "APT-003",
+    "user_id": "user_123",
+    "user_email": "john.doe@example.com",
+    "user_phone": "+1-555-0101",
+    "date": "2025-12-10",
+    "time": "09:00",
+    "service_type": "Wardrobe Consultation",
+    "status": "scheduled",
+    "created_at": "2025-11-28T15:20:00"
+  },
+  "APT-004": {
+    "appointment_id": "APT-004",
+    "user_id": "user_789",
+    "user_email": "bob.wilson@example.com",
+    "user_phone": "+1-555-0103",
+    "date": "2025-12-03",
+    "time": "16:00",
+    "service_type": "Custom Fitting",
+    "status": "completed",
+    "created_at": "2025-11-20T10:00:00"
+  },
+  "APT-005": {
+    "appointment_id": "APT-005",
+    "user_id": "user_001",
+    "user_email": "alice.brown@example.com",
+    "user_phone": "+1-555-0104",
+    "date": "2025-12-08",
+    "time": "11:00",
+    "service_type": "VIP Styling Experience",
+    "status": "scheduled",
+    "created_at": "2025-11-29T13:45:00"
+  },
+  "APT-006": {
+    "appointment_id": "APT-006",
+    "user_id": "user_002",
+    "user_email": "michael.chen@example.com",
+    "user_phone": "+1-555-0105",
+    "date": "2025-12-12",
+    "time": "15:00",
+    "service_type": "Alteration Pickup",
+    "status": "scheduled",
+    "created_at": "2025-11-30T10:15:00"
+  }
+}
