@@ -21,8 +21,8 @@ class OrdersAPI:
                 order_id="ORD-001",
                 user_id="user_123",
                 items=[
-                    OrderItem(item_id="PROD-002", name="Technical Cashmere Sweater", quantity=1, price=485.00),
-                    OrderItem(item_id="PROD-007", name="Merino Wool Base Layer Set", quantity=2, price=245.00),
+                    OrderItem(product_id="PROD-002", name="Technical Cashmere Sweater", quantity=1, price=485.00),
+                    OrderItem(product_id="PROD-007", name="Merino Wool Base Layer Set", quantity=2, price=245.00),
                 ],
                 total_amount=975.00,
                 status="shipped",
@@ -33,7 +33,7 @@ class OrdersAPI:
                 order_id="ORD-002",
                 user_id="user_456",
                 items=[
-                    OrderItem(item_id="PROD-001", name="Merino Wool Performance Jacket", quantity=1, price=895.00),
+                    OrderItem(product_id="PROD-001", name="Merino Wool Performance Jacket", quantity=1, price=895.00),
                 ],
                 total_amount=895.00,
                 status="processing",
@@ -44,8 +44,8 @@ class OrdersAPI:
                 order_id="ORD-003",
                 user_id="user_789",
                 items=[
-                    OrderItem(item_id="PROD-004", name="Performance Stretch Trousers", quantity=2, price=395.00),
-                    OrderItem(item_id="PROD-008", name="Premium Leather Chelsea Boots", quantity=1, price=725.00),
+                    OrderItem(product_id="PROD-004", name="Performance Stretch Trousers", quantity=2, price=395.00),
+                    OrderItem(product_id="PROD-008", name="Premium Leather Chelsea Boots", quantity=1, price=725.00),
                 ],
                 total_amount=1515.00,
                 status="delivered",
@@ -56,7 +56,7 @@ class OrdersAPI:
                 order_id="ORD-004",
                 user_id="user_123",
                 items=[
-                    OrderItem(item_id="PROD-006", name="Swiss Automatic Watch", quantity=1, price=2850.00),
+                    OrderItem(product_id="PROD-006", name="Swiss Automatic Watch", quantity=1, price=2850.00),
                 ],
                 total_amount=2850.00,
                 status="pending",
@@ -67,8 +67,8 @@ class OrdersAPI:
                 order_id="ORD-005",
                 user_id="user_456",
                 items=[
-                    OrderItem(item_id="PROD-005", name="Lightweight Down Vest", quantity=1, price=325.00),
-                    OrderItem(item_id="PROD-003", name="Heritage Leather Weekender Bag", quantity=1, price=1250.00),
+                    OrderItem(product_id="PROD-005", name="Lightweight Down Vest", quantity=1, price=325.00),
+                    OrderItem(product_id="PROD-003", name="Heritage Leather Weekender Bag", quantity=1, price=1250.00),
                 ],
                 total_amount=1575.00,
                 status="pending",
@@ -102,7 +102,60 @@ class OrdersAPI:
         order = self._orders.get(order_id)
         return order.status if order else None
 
-    def swap_item(self, order_id: str, old_item_id: str, new_item_id: str, new_item_name: str) -> dict[str, str]:
+    def make_order(self, user_id: str, items: list[OrderItem]) -> dict[str, str | OrderDetails]:
+        """
+        Create a new order for a user with the specified items. Each OrderItem must include product_id (format: PROD-XXX), name, quantity, and price. Use search_products first to find products and get accurate product details (product_id, name, price) before creating an order.
+
+        Args:
+            user_id: The unique user identifier
+            items: List of OrderItem objects, each containing product_id (e.g., "PROD-001"), name, quantity, and price
+
+        Returns:
+            Dictionary with success status, message, and order details if successful
+        """
+        if not items:
+            return {"success": "false", "message": "Cannot create order with no items"}
+
+        # Convert dicts to OrderItem objects if necessary (when called via OpenAI tool calling)
+        order_items: list[OrderItem] = []
+        for item in items:
+            if isinstance(item, dict):
+                order_items.append(OrderItem(**item))
+            else:
+                order_items.append(item)
+
+        # Generate new order ID
+        existing_order_ids = [int(oid.split("-")[1]) for oid in self._orders]
+        next_order_num = max(existing_order_ids) + 1 if existing_order_ids else 1
+        new_order_id = f"ORD-{next_order_num:03d}"
+
+        # Calculate total amount
+        total_amount = sum(item.quantity * item.price for item in order_items)
+
+        # Create timestamp
+        now = datetime.now().isoformat()
+
+        # Create the order
+        new_order = OrderDetails(
+            order_id=new_order_id,
+            user_id=user_id,
+            items=order_items,
+            total_amount=total_amount,
+            status="pending",
+            created_at=now,
+            updated_at=now,
+        )
+
+        # Store the order
+        self._orders[new_order_id] = new_order
+
+        return {
+            "success": "true",
+            "message": f"Order {new_order_id} created successfully",
+            "order": new_order.model_dump(),
+        }
+
+    def swap_item(self, order_id: str, old_product_id: str, new_product_id: str, new_item_name: str) -> dict[str, str]:
         """
         Swap an item in an order with another item.
 
@@ -113,8 +166,8 @@ class OrdersAPI:
 
         Args:
             order_id: The unique order identifier
-            old_item_id: ID of item to replace
-            new_item_id: ID of new item
+            old_product_id: ID of item to replace
+            new_product_id: ID of new item
             new_item_name: Name of new item
 
         Returns:
@@ -135,17 +188,17 @@ class OrdersAPI:
         # Find the item to swap
         item_index = None
         for idx, item in enumerate(order.items):
-            if item.item_id == old_item_id:
+            if item.product_id == old_product_id:
                 item_index = idx
                 break
 
         if item_index is None:
-            return {"success": "false", "message": f"Item {old_item_id} not found in order {order_id}"}
+            return {"success": "false", "message": f"Item {old_product_id} not found in order {order_id}"}
 
         # Keep the same quantity and price for simplicity
         old_item = order.items[item_index]
         order.items[item_index] = OrderItem(
-            item_id=new_item_id, name=new_item_name, quantity=old_item.quantity, price=old_item.price
+            product_id=new_product_id, name=new_item_name, quantity=old_item.quantity, price=old_item.price
         )
 
         order.updated_at = datetime.now().isoformat()

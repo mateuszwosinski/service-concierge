@@ -13,7 +13,7 @@ class UserProfile(BaseModel):
 class OrderItem(BaseModel):
     """Individual item in an order."""
 
-    item_id: str
+    product_id: str
     name: str
     quantity: int
     price: float

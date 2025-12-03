@@ -25,12 +25,16 @@ format:
 	ruff format src/ tests/
 	ruff check --fix src/ tests/
 
-test:
+test: sync
 	pytest tests/ -v
 
-demo: sync
+demo-apis: sync
 	python examples/demo_apis.py
+
+demo-tools: sync
 	python examples/demo_tool_definitions.py
+
+demo-understanding: sync
 	python examples/demo_understanding_tools.py
 
 run: sync

@@ -1,6 +1,7 @@
 import json
 
 from jinja2 import Environment, FileSystemLoader
+from loguru import logger
 from openai import OpenAI
 from openai.types.chat import ChatCompletionMessageParam
 
@@ -21,16 +22,24 @@ class Understanding:
             loader=FileSystemLoader(searchpath="/"), autoescape=True
         ).get_template(str(AGENT_PROMPT_PATH))
 
-    def process(self, input_text: str, max_iterations: int = 10) -> str:
+    def process(
+        self,
+        latest_user_message: str,
+        previous_messages: list[ChatCompletionMessageParam] | None = None,
+        max_iterations: int = 10,
+    ) -> str:
         """Process the input text using the language model with tool calling support.
 
         Args:
-            input_text: User input to process
+            latest_user_message: User message to process
+            previous_messages: List of previous messages in the conversation
             max_iterations: Maximum number of tool calling iterations
         Returns:
             Final response from the language model after executing any necessary tools
         """
-        prompt = self._understanding_prompt_template.render(input_text=input_text)
+        prompt = self._understanding_prompt_template.render(
+            latest_user_message=latest_user_message, previous_messages=previous_messages if previous_messages else []
+        )
         prompt = "\n".join(line.strip() for line in prompt.split("\n") if line.strip())
 
         # Initialize conversation with user input
@@ -38,6 +47,8 @@ class Understanding:
 
         iteration = 0
         while iteration < max_iterations:
+            logger.info(f"Tool calling iteration {iteration + 1}")
+
             # Call the model with tools
             response = self._client.chat.completions.create(
                 model=self._model,
@@ -47,6 +58,7 @@ class Understanding:
             )
 
             assistant_message = response.choices[0].message
+            logger.info(f"Assistant message: {assistant_message.content}")
 
             # Add assistant's response to messages
             messages.append(
@@ -67,6 +79,8 @@ class Understanding:
                 tool_name = tool_call.function.name
                 tool_arguments = json.loads(tool_call.function.arguments)
 
+                logger.info(f"Executing tool: {tool_name} with arguments: {tool_arguments}")
+
                 # Execute the tool
                 tool_result = execute_tool(tool_name, tool_arguments)
 
@@ -78,8 +92,8 @@ class Understanding:
                         "content": tool_result,
                     }
                 )
-
+                logger.info(f"Tool result for {tool_name}: {tool_result}")
             iteration += 1
 
         # If we've reached max iterations, return the last assistant message
-        return "Maximum tool calling iterations reached. Please try simplifying your request."
+        return messages[-1]["content"] or ""

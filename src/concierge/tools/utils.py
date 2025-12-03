@@ -1,6 +1,8 @@
 import re
 from typing import Any, Union, get_args, get_origin
 
+from pydantic import BaseModel
+
 
 def _parse_docstring(docstring: str) -> tuple[str, dict[str, str]]:
     """Parse Google-style docstring to extract description and parameter descriptions.
@@ -83,11 +85,26 @@ def _python_type_to_json_schema(python_type: Any) -> dict[str, Any]:  # noqa: PL
 
     # Handle list types
     if origin is list:
-        return {"type": "array"}
+        args = get_args(python_type)
+        if args:
+            # Get the inner type schema
+            inner_schema = _python_type_to_json_schema(args[0])
+            return {"type": "array", "items": inner_schema}
+        # No type information, allow any items
+        return {"type": "array", "items": {}}
 
     # Handle dict types
     if origin is dict:
-        return {"type": "object"}
+        return {"type": "object", "additionalProperties": True}
+
+    # Handle Pydantic models
+    if issubclass(python_type, BaseModel):
+        # Get the Pydantic model's JSON schema
+        schema = python_type.model_json_schema()
+        # Remove $defs if present (OpenAI doesn't support refs well)
+        schema.pop("$defs", None)
+        schema.pop("definitions", None)
+        return schema
 
     # Default to string for unknown types
     return {"type": "string"}

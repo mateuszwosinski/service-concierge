@@ -253,13 +253,13 @@ class KnowledgeAPI:
 
     def search_products(self, query: str) -> list[Product]:
         """
-        Search products using keyword matching.
+        Search products by name, description, category, or features. Use this when clients mention product names or descriptions (e.g., "merino jacket", "leather bag", "winter coats"). This searches across all product fields and returns full product details including product_id. ALWAYS use this function first when clients describe what they're looking for, rather than trying to construct or guess a product_id.
 
         Args:
-            query: Search query string
+            query: Search query string (product name, description, category, or feature keywords)
 
         Returns:
-            List of matching Product objects, sorted by relevance
+            List of matching Product objects with complete details (including product_id), sorted by relevance
         """
         query_lower = query.lower()
         results: list[tuple[Product, float]] = []
@@ -302,13 +302,13 @@ class KnowledgeAPI:
 
     def get_product(self, product_id: str) -> Optional[Product]:
         """
-        Get a specific product by ID.
+        Get a specific product by its exact product_id. ONLY use this when you already have the exact product_id in format PROD-XXX (e.g., "PROD-001", "PROD-002"). DO NOT use slugified names, product names, or any other format as the product_id. If you need to find a product by name or description, use search_products first to get the correct product_id.
 
         Args:
-            product_id: Product identifier
+            product_id: Exact product identifier in format PROD-XXX (e.g., "PROD-001")
 
         Returns:
-            Product if found, None otherwise
+            Product object with full details if found, None otherwise
         """
         return self._products.get(product_id)
 
@@ -345,13 +345,13 @@ class KnowledgeAPI:
 
     def search_policies(self, query: str) -> list[PolicyDocument]:
         """
-        Search policy documents using keyword matching.
+        Search company policies and information documents. Use this to find information about shipping, returns, warranty, privacy, terms of service, fitting services, styling sessions, VIP programs, and other company policies. Searches across titles, content, and keywords.
 
         Args:
-            query: Search query string
+            query: Search query string (e.g., "shipping", "returns", "warranty", "privacy", "fitting appointment")
 
         Returns:
-            List of matching PolicyDocument objects, sorted by relevance
+            List of matching PolicyDocument objects with full policy details, sorted by relevance
         """
         query_lower = query.lower()
         results: list[tuple[PolicyDocument, float]] = []

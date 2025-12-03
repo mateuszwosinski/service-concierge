@@ -1,7 +1,6 @@
 import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI
-from loguru import logger
 
 from concierge.agent.main import Agent
 from concierge.datatypes.chat_types import ChatRequest, ChatResponse
@@ -18,9 +17,7 @@ async def chat(request: ChatRequest) -> ChatResponse:
     """
     Chat endpoint that receives a message and returns a response.
     """
-    logger.info(f"Received message for conversation {request.conversation_id}: {request.message}")
     response = agent.process_message(request.conversation_id, request.message)
-    logger.info(f"Responding to conversation {request.conversation_id} with: {response}")
     return ChatResponse(response=response)
 
 
