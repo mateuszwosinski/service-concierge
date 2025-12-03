@@ -1,16 +1,19 @@
-.PHONY: help install lint format test run dev clean sync demo
+.PHONY: help install lint format test run dev clean sync demo demo-streamlit
 
 help:
 	@echo "Available commands:"
-	@echo "  make install    - Install the package in editable mode"
-	@echo "  make sync       - Sync dependencies with uv"
-	@echo "  make lint       - Run linting checks with ruff"
-	@echo "  make format     - Format code with ruff"
-	@echo "  make test       - Run tests with pytest"
-	@echo "  make demo       - Run mock API demo"
-	@echo "  make run        - Run the FastAPI application"
-	@echo "  make dev        - Run the app in development mode with auto-reload"
-	@echo "  make clean      - Remove Python cache files"
+	@echo "  make install         - Install the package in editable mode"
+	@echo "  make sync            - Sync dependencies with uv"
+	@echo "  make lint            - Run linting checks with ruff"
+	@echo "  make format          - Format code with ruff"
+	@echo "  make test            - Run tests with pytest"
+	@echo "  make demo-apis       - Run mock API demo"
+	@echo "  make demo-tools      - Run tool definitions demo"
+	@echo "  make demo-understanding - Run understanding tools demo"
+	@echo "  make demo-streamlit  - Run Streamlit chat UI demo"
+	@echo "  make run             - Run the FastAPI application"
+	@echo "  make dev             - Run the app in development mode with auto-reload"
+	@echo "  make clean           - Remove Python cache files"
 
 install:
 	uv pip install -e .
@@ -19,11 +22,11 @@ sync:
 	uv sync
 
 lint:
-	ruff check src/ tests/
+	ruff check src/
 
 format:
-	ruff format src/ tests/
-	ruff check --fix src/ tests/
+	ruff format src/ examples/
+	ruff check --fix src/ examples/
 
 test: sync
 	pytest tests/ -v
@@ -36,6 +39,9 @@ demo-tools: sync
 
 demo-understanding: sync
 	python examples/demo_understanding_tools.py
+
+demo-streamlit: sync
+	streamlit run examples/streamlit_demo.py
 
 run: sync
 	python -m uvicorn concierge.app:app --host 0.0.0.0 --port 8000

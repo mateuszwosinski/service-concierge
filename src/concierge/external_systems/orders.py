@@ -155,6 +155,60 @@ class OrdersAPI:
             "order": new_order.model_dump(),
         }
 
+    def update_order(self, order_id: str, items: list[OrderItem]) -> dict[str, str | OrderDetails]:
+        """
+        Update an existing order with new items. Replaces all items in the order and recalculates the total. Use this to add, remove, or modify items in an order. Only works for orders that are still modifiable (pending or processing status).
+
+        Business Logic:
+        - Order must exist
+        - Order status must be 'pending' or 'processing' (not shipped/delivered/cancelled)
+        - New items list cannot be empty
+
+        Args:
+            order_id: The unique order identifier
+            items: List of OrderItem objects representing the complete updated order
+
+        Returns:
+            Dictionary with success status, message, and updated order details if successful
+        """
+        order = self._orders.get(order_id)
+
+        if not order:
+            return {"success": "false", "message": f"Order {order_id} not found"}
+
+        if order.status not in ["pending", "processing"]:
+            return {
+                "success": "false",
+                "message": f"Cannot modify order with status '{order.status}'. "
+                "Only pending or processing orders can be modified.",
+            }
+
+        if not items:
+            return {"success": "false", "message": "Cannot update order with no items"}
+
+        # Convert dicts to OrderItem objects if necessary (when called via OpenAI tool calling)
+        order_items: list[OrderItem] = []
+        for item in items:
+            if isinstance(item, dict):
+                order_items.append(OrderItem(**item))
+            else:
+                order_items.append(item)
+
+        # Update order items
+        order.items = order_items
+
+        # Recalculate total amount
+        order.total_amount = sum(item.quantity * item.price for item in order_items)
+
+        # Update timestamp
+        order.updated_at = datetime.now().isoformat()
+
+        return {
+            "success": "true",
+            "message": f"Order {order_id} updated successfully",
+            "order": order.model_dump(),
+        }
+
     def swap_item(self, order_id: str, old_product_id: str, new_product_id: str, new_item_name: str) -> dict[str, str]:
         """
         Swap an item in an order with another item.
@@ -240,36 +294,6 @@ class OrdersAPI:
         order.updated_at = datetime.now().isoformat()
 
         return {"success": "true", "message": f"Order {order_id} has been cancelled"}
-
-    def update_order_status(self, order_id: str, new_status: str) -> dict[str, str]:
-        """
-        Update the status of an order.
-
-        Args:
-            order_id: The unique order identifier
-            new_status: New status value
-
-        Returns:
-            Dictionary with success status and message
-        """
-        valid_statuses = ["pending", "processing", "shipped", "delivered", "cancelled"]
-
-        if new_status not in valid_statuses:
-            return {"success": "false", "message": f"Invalid status. Must be one of: {', '.join(valid_statuses)}"}
-
-        order = self._orders.get(order_id)
-
-        if not order:
-            return {"success": "false", "message": f"Order {order_id} not found"}
-
-        old_status = order.status
-        order.status = new_status
-        order.updated_at = datetime.now().isoformat()
-
-        return {
-            "success": "true",
-            "message": f"Order {order_id} status updated from '{old_status}' to '{new_status}'",
-        }
 
 
 # Global instance
