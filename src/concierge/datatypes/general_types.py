@@ -17,6 +17,8 @@ class OrderItem(BaseModel):
     name: str
     quantity: int
     price: float
+    size: str | None = None
+    color: str | None = None
 
 
 class OrderDetails(BaseModel):
