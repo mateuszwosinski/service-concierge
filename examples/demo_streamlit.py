@@ -1,10 +1,3 @@
-"""Simple Streamlit chat interface for the luxury concierge agent.
-
-To run this demo:
-1. Install streamlit: pip install streamlit
-2. Run: streamlit run examples/streamlit_demo.py
-"""
-
 import json
 import uuid
 from pathlib import Path
