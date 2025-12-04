@@ -8,7 +8,7 @@ from openai import APIError, AuthenticationError, RateLimitError
 from pydantic import ValidationError
 
 from concierge.agent.main import Agent
-from concierge.datatypes.chat_types import ChatRequest, ChatResponse
+from concierge.datatypes.chat_types import ChatRequest
 
 load_dotenv()
 
@@ -20,7 +20,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
     """Handle request validation errors."""
     logger.error(f"Validation error: {exc}")
     return JSONResponse(
-        status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+        status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
         content={
             "error": "Validation error",
             "detail": exc.errors(),
@@ -112,8 +112,8 @@ async def health_check() -> dict[str, str]:
     return {"status": "healthy"}
 
 
-@app.post("/api/v1/chat", response_model=ChatResponse)
-async def chat(request: ChatRequest) -> ChatResponse:
+@app.post("/api/v1/chat")
+async def chat(request: ChatRequest) -> dict[str, str]:
     """
     Chat endpoint that receives a message and returns a response.
 
@@ -141,7 +141,7 @@ async def chat(request: ChatRequest) -> ChatResponse:
     try:
         logger.info(f"Processing chat request for conversation {request.conversation_id}")
         response = agent.process_message(request.conversation_id, request.message)
-        return ChatResponse(response=response)
+        return {"message": response}
     except AuthenticationError:
         # Re-raise to be handled by exception handler
         raise
