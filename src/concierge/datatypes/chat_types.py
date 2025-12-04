@@ -10,12 +10,6 @@ class ChatRequest(BaseModel):
     message: str
 
 
-class ChatResponse(BaseModel):
-    """Represents a response from the chat system."""
-
-    response: str
-
-
 class Role(StrEnum):
     """Represents the role of a message sender."""
 

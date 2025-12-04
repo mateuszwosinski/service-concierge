@@ -121,7 +121,7 @@ async def chat(request: ChatRequest) -> dict[str, str]:
         request: Chat request containing conversation_id and message
 
     Returns:
-        ChatResponse with the agent's response
+        Agent's response
 
     Raises:
         HTTPException: If request validation fails or processing encounters an error
