@@ -41,7 +41,7 @@ class OrdersAPI:
         Returns:
             OrderDetails if found, None otherwise
         """
-        return self._orders.get(order_id)
+        return self._orders.get(order_id.upper())
 
     def get_order_status(self, order_id: str) -> Optional[str]:
         """
@@ -53,7 +53,7 @@ class OrdersAPI:
         Returns:
             Order status string if found, None otherwise
         """
-        order = self._orders.get(order_id)
+        order = self._orders.get(order_id.upper())
         return order.status if order else None
 
     def make_order(self, user_id: str, items: list[OrderItem]) -> dict[str, str | OrderDetails]:
@@ -125,6 +125,7 @@ class OrdersAPI:
         Returns:
             Dictionary with success status, message, and updated order details if successful
         """
+        order_id = order_id.upper()
         order = self._orders.get(order_id)
 
         if not order:
@@ -181,6 +182,7 @@ class OrdersAPI:
         Returns:
             Dictionary with success status and message
         """
+        order_id = order_id.upper()
         order = self._orders.get(order_id)
 
         if not order:
@@ -230,6 +232,7 @@ class OrdersAPI:
         Returns:
             Dictionary with success status and message
         """
+        order_id = order_id.upper()
         order = self._orders.get(order_id)
 
         if not order:
