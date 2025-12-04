@@ -1,9 +1,62 @@
 # concierge
 
+# Quick Start
+
+## Start with Docker
+
+The easiest way to run the application is using Docker. This method requires no local Python setup.
+
+### Prerequisites
+
+- Docker
+- Docker Compose
+- OpenAI API key
+
+### Running with Docker
+
+1. Copy the example environment file and add your OpenAI API key:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and add your OpenAI API key:
+```
+OPENAI_API_KEY=your-api-key-here
+```
+
+2. Build and start the service:
+
+```bash
+docker compose up --build
+```
+
+The service will be available at `http://localhost:8000`
+
+3. View the API documentation at `http://localhost:8000/docs`
+
+### Docker Commands
+
+```bash
+# Start the service in detached mode
+docker compose up -d
+
+# Stop the service
+docker compose down
+
+# View logs
+docker compose logs -f
+
+# Rebuild the container after changes
+docker compose up --build
+
+# Stop and remove containers, networks, and volumes
+docker compose down -v
+```
 
 # Setup developer environment
 
-To start, you need to setup your local machine.
+To develop locally without Docker, you need to setup your local machine.
 
 ## Setup venv
 

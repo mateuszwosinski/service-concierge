@@ -5,7 +5,7 @@ version = "0.0.1-dev"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "LicenseRef-Proprietary"
-license-files = ["LICENSE.md"]
+license-files = ["LICENSE"]
 classifiers = [
     "Development Status :: 1 - Planning",
     "Environment :: Console",
@@ -40,12 +40,6 @@ dev-dependencies = [
     "pytest>=8.0.0",
     "pytest-cov",
     "pip-licenses>=4.0.0,<5.0.0", # for getting dependency licenses and docs
-    "sphinx>=7.1.0,<8.0.0", # for building docs
-    "sphinx-rtd-theme>=2.0.0,<3.0.0",
-    "myst-parser>=3.0.0", # adds markdown to sphinx
-    "sphinxcontrib-mermaid>=0.9.0", # adds option to have diagrams in sphinx
-    "snowballstemmer==2.2.0",
-    "bump2version>=1.0.1,<2.0.0", # for bumping version strings
     "streamlit>=1.30.0", # for demo UI
 ]
 
