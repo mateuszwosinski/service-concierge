@@ -2,7 +2,7 @@
 
 # Quick Start
 
-## Start with Docker
+## Run App with Docker
 
 The easiest way to run the application is using Docker. This method requires no local Python setup.
 
@@ -76,7 +76,74 @@ To reformat and lint all files in the project, use:
 uv run pre-commit run --all-files
 ```
 
+or
+
+```
+make lint
+```
+
 The used linters are configured in `.pre-commit-config.yaml`.
+
+# Run App Locally
+
+After setting up your development environment, you can run the application in two ways:
+
+## Option 1: FastAPI Backend (API Server)
+
+Run the FastAPI server for API access:
+
+```bash
+uv run uvicorn concierge.app:app --reload --host 0.0.0.0 --port 8000
+```
+
+Or use the Makefile shortcuts:
+
+```bash
+make run  # Run in production mode
+make dev  # Run in development mode with auto-reload
+```
+
+The API will be available at:
+- API endpoint: `http://localhost:8000/api/v1/chat`
+- Interactive API docs: `http://localhost:8000/docs`
+- Alternative docs: `http://localhost:8000/redoc`
+
+### Test the API
+
+You can test the API using curl:
+
+```bash
+curl -X POST "http://localhost:8000/api/v1/chat" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "conversation_id": "test-123",
+    "message": "Show me merino wool jackets"
+  }'
+```
+
+## Option 2: Streamlit Demo (Interactive UI)
+
+Run the Streamlit demo for an interactive chat interface:
+
+```bash
+uv run streamlit run examples/demo_streamlit.py
+```
+
+Or use the Makefile shortcut:
+
+```bash
+make demo-streamlit
+```
+
+The Streamlit app will automatically open in your browser at `http://localhost:8501`
+
+### Features of the Streamlit Demo
+
+- Interactive chat interface
+- Conversation history
+- Example users in the sidebar
+- Sample queries to get started
+- Clear chat functionality
 
 # Work with the project
 
