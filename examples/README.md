@@ -26,7 +26,7 @@ OPENAI_API_KEY=your_api_key_here
 ### Running the Demo
 
 ```bash
-streamlit run examples/streamlit_demo.py
+streamlit run examples/demo_streamlit.py
 ```
 
 The chat interface will open in your browser at `http://localhost:8501`

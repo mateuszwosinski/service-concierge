@@ -41,7 +41,7 @@ demo-understanding: sync
 	python examples/demo_understanding_tools.py
 
 demo-streamlit: sync
-	streamlit run examples/streamlit_demo.py
+	streamlit run examples/demo_streamlit.py
 
 run: sync
 	python -m uvicorn concierge.app:app --host 0.0.0.0 --port 8000

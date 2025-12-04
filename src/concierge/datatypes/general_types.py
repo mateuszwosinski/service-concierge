@@ -17,6 +17,8 @@ class OrderItem(BaseModel):
     name: str
     quantity: int
     price: float
+    size: str | None = None
+    color: str | None = None
 
 
 class OrderDetails(BaseModel):
@@ -35,6 +37,7 @@ class AppointmentInfo(BaseModel):
     """Appointment information."""
 
     appointment_id: str
+    user_id: str
     user_email: str
     user_phone: str
     date: str = Field(description="Date in YYYY-MM-DD format")
@@ -54,6 +57,8 @@ class Product(BaseModel):
     category: str
     in_stock: bool
     features: list[str]
+    colors: list[str]
+    sizes: list[str]
 
 
 class PolicyDocument(BaseModel):

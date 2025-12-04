@@ -1,9 +1,11 @@
 """Mock Appointments API for managing meeting scheduling and queries."""
 
+import json
 from datetime import datetime
 from typing import Optional
 
 from concierge.datatypes.general_types import AppointmentInfo
+from concierge.paths import APPOINTMENTS_DATA_PATH
 
 
 class AppointmentsAPI:
@@ -18,69 +20,12 @@ class AppointmentsAPI:
 
     @staticmethod
     def _initialize_mock_appointments() -> dict[str, AppointmentInfo]:
-        """Create mock appointment data."""
-        return {
-            "APT-001": AppointmentInfo(
-                appointment_id="APT-001",
-                user_email="john.doe@example.com",
-                user_phone="+1-555-0101",
-                date="2025-12-05",
-                time="10:00",
-                service_type="Personal Styling Session",
-                status="scheduled",
-                created_at="2025-11-25T09:00:00",
-            ),
-            "APT-002": AppointmentInfo(
-                appointment_id="APT-002",
-                user_email="jane.smith@example.com",
-                user_phone="+1-555-0102",
-                date="2025-12-06",
-                time="14:30",
-                service_type="Tailoring and Fitting",
-                status="confirmed",
-                created_at="2025-11-26T11:30:00",
-            ),
-            "APT-003": AppointmentInfo(
-                appointment_id="APT-003",
-                user_email="john.doe@example.com",
-                user_phone="+1-555-0101",
-                date="2025-12-10",
-                time="09:00",
-                service_type="Wardrobe Consultation",
-                status="scheduled",
-                created_at="2025-11-28T15:20:00",
-            ),
-            "APT-004": AppointmentInfo(
-                appointment_id="APT-004",
-                user_email="bob.wilson@example.com",
-                user_phone="+1-555-0103",
-                date="2025-12-03",
-                time="16:00",
-                service_type="Custom Fitting",
-                status="completed",
-                created_at="2025-11-20T10:00:00",
-            ),
-            "APT-005": AppointmentInfo(
-                appointment_id="APT-005",
-                user_email="alice.brown@example.com",
-                user_phone="+1-555-0104",
-                date="2025-12-08",
-                time="11:00",
-                service_type="VIP Styling Experience",
-                status="scheduled",
-                created_at="2025-11-29T13:45:00",
-            ),
-            "APT-006": AppointmentInfo(
-                appointment_id="APT-006",
-                user_email="michael.chen@example.com",
-                user_phone="+1-555-0105",
-                date="2025-12-12",
-                time="15:00",
-                service_type="Alteration Pickup",
-                status="scheduled",
-                created_at="2025-11-30T10:15:00",
-            ),
-        }
+        """Load mock appointment data from JSON file."""
+        data_path = APPOINTMENTS_DATA_PATH
+        with data_path.open() as f:
+            appointments_data = json.load(f)
+
+        return {apt_id: AppointmentInfo(**apt_dict) for apt_id, apt_dict in appointments_data.items()}
 
     def _build_indexes(self) -> None:
         """Build email and phone indexes for quick lookup."""
@@ -136,7 +81,9 @@ class AppointmentsAPI:
         apt_ids = self._phone_index.get(phone, [])
         return [self._appointments[apt_id] for apt_id in apt_ids if apt_id in self._appointments]
 
-    def schedule_appointment(self, email: str, phone: str, date: str, time: str, service_type: str) -> dict[str, str]:
+    def schedule_appointment(
+        self, user_id: str, email: str, phone: str, date: str, time: str, service_type: str
+    ) -> dict[str, str]:
         """
         Schedule a new appointment for services like Personal Styling Session, Tailoring and Fitting, Wardrobe Consultation, Custom Fitting, VIP Styling Experience, or Alteration Pickup. Automatically checks for conflicts and prevents double-booking.
 
@@ -145,6 +92,7 @@ class AppointmentsAPI:
         - No duplicate appointments at the same date/time for the same user
 
         Args:
+            user_id: User's unique identifier
             email: User's email address
             phone: User's phone number (format: +1-555-0101)
             date: Appointment date in YYYY-MM-DD format
@@ -170,6 +118,7 @@ class AppointmentsAPI:
         # Create appointment
         new_appointment = AppointmentInfo(
             appointment_id=new_apt_id,
+            user_id=user_id,
             user_email=email,
             user_phone=phone,
             date=date,

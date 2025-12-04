@@ -1,0 +1,246 @@
+{
+  "ORD-001": {
+    "order_id": "ORD-001",
+    "user_id": "user_123",
+    "items": [
+      {
+        "product_id": "PROD-002",
+        "name": "Merino Wool Henley",
+        "quantity": 1,
+        "price": 185.00,
+        "size": "M",
+        "color": "Navy"
+      },
+      {
+        "product_id": "PROD-001",
+        "name": "Alpine Technical Parka",
+        "quantity": 2,
+        "price": 1295.00,
+        "size": "L",
+        "color": "Black"
+      }
+    ],
+    "total_amount": 2775.00,
+    "status": "shipped",
+    "created_at": "2025-11-25T10:30:00",
+    "updated_at": "2025-11-26T14:20:00"
+  },
+  "ORD-002": {
+    "order_id": "ORD-002",
+    "user_id": "user_456",
+    "items": [
+      {
+        "product_id": "PROD-003",
+        "name": "Japanese Selvedge Denim",
+        "quantity": 1,
+        "price": 425.00,
+        "size": "32",
+        "color": "Indigo Raw"
+      }
+    ],
+    "total_amount": 425.00,
+    "status": "processing",
+    "created_at": "2025-11-28T09:15:00",
+    "updated_at": "2025-11-28T09:15:00"
+  },
+  "ORD-003": {
+    "order_id": "ORD-003",
+    "user_id": "user_789",
+    "items": [
+      {
+        "product_id": "PROD-004",
+        "name": "Cashmere Cable Knit Sweater",
+        "quantity": 2,
+        "price": 595.00,
+        "size": "L",
+        "color": "Charcoal"
+      },
+      {
+        "product_id": "PROD-005",
+        "name": "Minimalist Leather Sneaker",
+        "quantity": 1,
+        "price": 425.00,
+        "size": "10",
+        "color": "Navy"
+      }
+    ],
+    "total_amount": 1615.00,
+    "status": "delivered",
+    "created_at": "2025-11-20T16:45:00",
+    "updated_at": "2025-11-24T11:30:00"
+  },
+  "ORD-004": {
+    "order_id": "ORD-004",
+    "user_id": "user_123",
+    "items": [
+      {
+        "product_id": "PROD-006",
+        "name": "Technical Merino Base Layer Set",
+        "quantity": 1,
+        "price": 245.00,
+        "size": "M",
+        "color": "Black"
+      }
+    ],
+    "total_amount": 245.00,
+    "status": "pending",
+    "created_at": "2025-11-30T13:20:00",
+    "updated_at": "2025-11-30T13:20:00"
+  },
+  "ORD-005": {
+    "order_id": "ORD-005",
+    "user_id": "user_456",
+    "items": [
+      {
+        "product_id": "PROD-008",
+        "name": "Lightweight Down Vest",
+        "quantity": 1,
+        "price": 295.00,
+        "size": "M",
+        "color": "Olive"
+      },
+      {
+        "product_id": "PROD-007",
+        "name": "Heritage Leather Briefacase",
+        "quantity": 1,
+        "price": 1850.00,
+        "size": "One Size",
+        "color": "Black"
+      }
+    ],
+    "total_amount": 2145.00,
+    "status": "pending",
+    "created_at": "2025-12-01T14:45:00",
+    "updated_at": "2025-12-01T14:45:00"
+  },
+  "ORD-006": {
+    "order_id": "ORD-006",
+    "user_id": "user_001",
+    "items": [
+      {
+        "product_id": "PROD-021",
+        "name": "Cashmere Turtleneck",
+        "quantity": 1,
+        "price": 395.00,
+        "size": "M",
+        "color": "Camel"
+      },
+      {
+        "product_id": "PROD-045",
+        "name": "Cashmere Beanie",
+        "quantity": 1,
+        "price": 125.00,
+        "size": "One Size",
+        "color": "Camel"
+      }
+    ],
+    "total_amount": 520.00,
+    "status": "delivered",
+    "created_at": "2025-11-18T11:20:00",
+    "updated_at": "2025-11-22T16:45:00"
+  },
+  "ORD-007": {
+    "order_id": "ORD-007",
+    "user_id": "user_002",
+    "items": [
+      {
+        "product_id": "PROD-026",
+        "name": "Merino Training Tee",
+        "quantity": 2,
+        "price": 95.00,
+        "size": "L",
+        "color": "Black"
+      },
+      {
+        "product_id": "PROD-072",
+        "name": "Running Shoes",
+        "quantity": 1,
+        "price": 195.00,
+        "size": "10.5",
+        "color": "Grey"
+      }
+    ],
+    "total_amount": 385.00,
+    "status": "shipped",
+    "created_at": "2025-11-29T08:30:00",
+    "updated_at": "2025-11-30T10:15:00"
+  },
+  "ORD-008": {
+    "order_id": "ORD-008",
+    "user_id": "user_789",
+    "items": [
+      {
+        "product_id": "PROD-023",
+        "name": "Technical Rain Jacket",
+        "quantity": 1,
+        "price": 695.00,
+        "size": "XL",
+        "color": "Graphite"
+      }
+    ],
+    "total_amount": 695.00,
+    "status": "processing",
+    "created_at": "2025-12-02T15:10:00",
+    "updated_at": "2025-12-02T15:10:00"
+  },
+  "ORD-009": {
+    "order_id": "ORD-009",
+    "user_id": "user_123",
+    "items": [
+      {
+        "product_id": "PROD-009",
+        "name": "Oxford Dress Shirt",
+        "quantity": 2,
+        "price": 165.00,
+        "size": "15.5/34",
+        "color": "White"
+      },
+      {
+        "product_id": "PROD-046",
+        "name": "Oxford Brogue Shoes",
+        "quantity": 1,
+        "price": 495.00,
+        "size": "10",
+        "color": "Brown"
+      },
+      {
+        "product_id": "PROD-020",
+        "name": "Leather Belt",
+        "quantity": 1,
+        "price": 125.00,
+        "size": "34",
+        "color": "Brown"
+      }
+    ],
+    "total_amount": 1115.00,
+    "status": "cancelled",
+    "created_at": "2025-11-22T10:05:00",
+    "updated_at": "2025-11-23T09:30:00"
+  },
+  "ORD-010": {
+    "order_id": "ORD-010",
+    "user_id": "user_456",
+    "items": [
+      {
+        "product_id": "PROD-024",
+        "name": "Linen Button-Up Shirt",
+        "quantity": 1,
+        "price": 175.00,
+        "size": "M",
+        "color": "Sky Blue"
+      },
+      {
+        "product_id": "PROD-035",
+        "name": "Cotton-Linen Blend Chinos",
+        "quantity": 2,
+        "price": 165.00,
+        "size": "32",
+        "color": "Stone"
+      }
+    ],
+    "total_amount": 505.00,
+    "status": "pending",
+    "created_at": "2025-12-03T09:45:00",
+    "updated_at": "2025-12-03T09:45:00"
+  }
+}
