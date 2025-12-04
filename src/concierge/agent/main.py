@@ -23,20 +23,22 @@ class Agent:
         Returns:
             str: The agent's response.
         """
-        logger.info(f"Received message for conversation {conversation_id}: {message}")
+        try:
+            logger.info(f"Received message for conversation {conversation_id}: {message}")
 
-        # Get conversation history BEFORE adding current message
-        conversation = self.memory.get_conversation(conversation_id)
-        previous_messages = self._get_messages_from_conversation(conversation)
+            # Get conversation history BEFORE adding current message
+            conversation = self.memory.get_conversation(conversation_id)
+            previous_messages = self._get_messages_from_conversation(conversation)
 
-        # Add current user message to memory
-        self.memory.add_message(conversation_id, RoleMessage(role=Role.USER, message=message))
+            self.memory.add_message(conversation_id, RoleMessage(role=Role.USER, message=message))
 
-        # Process with Understanding agent
-        answer = self.understanding.process(message, previous_messages)
+            answer = self.understanding.process(message, previous_messages)
 
-        self.memory.add_message(conversation_id, RoleMessage(role=Role.ASSISTANT, message=answer))
-        return answer
+            self.memory.add_message(conversation_id, RoleMessage(role=Role.ASSISTANT, message=answer))
+            return answer
+        except Exception as e:
+            logger.error(f"Error processing message: {e}")
+            return "I'm sorry, but I encountered an error while processing your request. Please try again later."
 
     @staticmethod
     def _get_messages_from_conversation(conversation: list[RoleMessage]) -> list[ChatCompletionMessageParam]:

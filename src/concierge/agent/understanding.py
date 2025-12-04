@@ -1,9 +1,10 @@
 import json
+from time import sleep
 
 from jinja2 import Environment, FileSystemLoader
 from loguru import logger
 from openai import OpenAI
-from openai.types.chat import ChatCompletionMessageParam
+from openai.types.chat import ChatCompletion, ChatCompletionMessageParam
 
 from concierge.paths import AGENT_PROMPT_PATH
 from concierge.settings import settings
@@ -42,25 +43,17 @@ class Understanding:
         )
         prompt = "\n".join(line.strip() for line in prompt.split("\n") if line.strip())
 
-        # Initialize conversation with user input
         messages: list[ChatCompletionMessageParam] = [{"content": prompt, "role": "user"}]
 
         iteration = 0
         while iteration < max_iterations:
             logger.info(f"Tool calling iteration {iteration + 1}")
 
-            # Call the model with tools
-            response = self._client.chat.completions.create(
-                model=self._model,
-                messages=messages,
-                tools=TOOL_DEFINITIONS,
-                tool_choice="auto",
-            )
+            response = self._call_llm(messages)
 
             assistant_message = response.choices[0].message
             logger.info(f"Assistant message: {assistant_message.content}")
 
-            # Add assistant's response to messages
             messages.append(
                 {
                     "role": "assistant",
@@ -69,22 +62,17 @@ class Understanding:
                 }
             )
 
-            # Check if the model wants to call tools
             if not assistant_message.tool_calls:
-                # No tool calls, return the final response
                 return assistant_message.content or ""
 
-            # Execute each tool call
             for tool_call in assistant_message.tool_calls:
                 tool_name = tool_call.function.name
                 tool_arguments = json.loads(tool_call.function.arguments)
 
                 logger.info(f"Executing tool: {tool_name} with arguments: {tool_arguments}")
 
-                # Execute the tool
                 tool_result = execute_tool(tool_name, tool_arguments)
 
-                # Add tool result to messages
                 messages.append(
                     {
                         "role": "tool",
@@ -95,5 +83,18 @@ class Understanding:
                 logger.info(f"Tool result for {tool_name}: {tool_result}")
             iteration += 1
 
-        # If we've reached max iterations, return the last assistant message
         return messages[-1]["content"] or ""
+
+    def _call_llm(self, messages: list[ChatCompletionMessageParam]) -> ChatCompletion:
+        for i in range(3):
+            try:
+                return self._client.chat.completions.create(
+                    model=self._model,
+                    messages=messages,
+                    tools=TOOL_DEFINITIONS,
+                    tool_choice="auto",
+                )
+            except Exception as e:
+                logger.warning(f"Error calling LLM: {e}")
+                sleep(2**i)
+        raise RuntimeError("Failed to call LLM after multiple attempts")
