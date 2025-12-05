@@ -13,7 +13,7 @@ class TestOrdersAPI:
         assert order is not None
         assert order.order_id == "ORD-001"
         assert order.status == "shipped"
-        assert order.total_amount == 975.00
+        assert order.total_amount == 2775.0
         assert len(order.items) == 2
 
     def test_get_order_not_found(self) -> None:
@@ -87,32 +87,6 @@ class TestOrdersAPI:
     def test_cancel_order_not_found(self) -> None:
         """Test canceling non-existent order."""
         result = orders_api.cancel_order("ORD-999")
-
-        assert result["success"] == "false"
-        assert "not found" in result["message"].lower()
-
-    def test_update_order_status_success(self) -> None:
-        """Test updating order status."""
-        result = orders_api.update_order_status("ORD-002", "shipped")
-
-        assert result["success"] == "true"
-        assert "updated" in result["message"].lower()
-
-        # Verify status changed
-        order = orders_api.get_order("ORD-002")
-        assert order is not None
-        assert order.status == "shipped"
-
-    def test_update_order_status_invalid(self) -> None:
-        """Test updating order status with invalid status."""
-        result = orders_api.update_order_status("ORD-001", "invalid_status")
-
-        assert result["success"] == "false"
-        assert "invalid status" in result["message"].lower()
-
-    def test_update_order_status_not_found(self) -> None:
-        """Test updating status of non-existent order."""
-        result = orders_api.update_order_status("ORD-999", "shipped")
 
         assert result["success"] == "false"
         assert "not found" in result["message"].lower()

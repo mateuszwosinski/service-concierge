@@ -7,7 +7,8 @@ class AppSettings(BaseSettings):
 
     APP_NAME: str = "Concierge Service"
 
-    AGENT_MODEL: str = "gpt-4o-mini"
+    # AGENT_MODEL: str = "gpt-4o-mini"
+    AGENT_MODEL: str = "gpt-5.1"
     OPENAI_API_KEY: str = Field(..., min_length=1, description="OpenAI API key is required")
 
     @field_validator("OPENAI_API_KEY")
