@@ -218,10 +218,12 @@ with st.sidebar:
     users = load_users()
     for _, user_data in users.items():
         with st.expander(f"👤 {user_data['name']}", expanded=False):
+            orders_list = ", ".join(user_data.get("orders", []))
             st.markdown(f"""
             **User ID:** `{user_data["user_id"]}`
             **Email:** `{user_data["email"]}`
             **Phone:** `{user_data["phone"]}`
+            **Orders:** `{orders_list}`
             """)
 
     st.divider()
