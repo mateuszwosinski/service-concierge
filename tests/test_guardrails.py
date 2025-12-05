@@ -2,7 +2,7 @@
 
 import pytest
 
-from concierge.guardrails import InputGuardrails, check_input_guardrails
+from concierge.agent.guardrails import InputGuardrails, check_input_guardrails
 
 
 class TestInputGuardrails:

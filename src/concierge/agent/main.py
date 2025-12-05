@@ -1,9 +1,9 @@
 from loguru import logger
 from openai.types.chat import ChatCompletionMessageParam
 
+from concierge.agent.guardrails import check_input_guardrails
 from concierge.agent.understanding import Understanding
 from concierge.datatypes.chat_types import Role, RoleMessage
-from concierge.guardrails import check_input_guardrails
 from concierge.memory.internal import Memory
 
 
