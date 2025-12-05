@@ -56,6 +56,18 @@ class OrdersAPI:
         order = self._orders.get(order_id.upper())
         return order.status if order else None
 
+    def get_orders(self, user_id: str) -> list[OrderDetails]:
+        """
+        Get all orders for a specific user.
+
+        Args:
+            user_id: The unique user identifier
+
+        Returns:
+            List of OrderDetails for the user (empty list if none found)
+        """
+        return [order for order in self._orders.values() if order.user_id == user_id]
+
     def make_order(self, user_id: str, items: list[OrderItem]) -> dict[str, str | OrderDetails]:
         """
         Create a new order for a user with the specified items. Each OrderItem must include product_id (format: PROD-XXX), name, quantity, and price. Use search_products first to find products and get accurate product details (product_id, name, price) before creating an order.

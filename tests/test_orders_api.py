@@ -31,6 +31,21 @@ class TestOrdersAPI:
         status = orders_api.get_order_status("ORD-999")
         assert status is None
 
+    def test_get_orders_for_user(self) -> None:
+        """Test retrieving all orders for a user."""
+        orders = orders_api.get_orders("user_123")
+        assert len(orders) == 3
+        order_ids = [order.order_id for order in orders]
+        assert "ORD-001" in order_ids
+        assert "ORD-004" in order_ids
+        assert "ORD-009" in order_ids
+
+    def test_get_orders_for_user_with_no_orders(self) -> None:
+        """Test retrieving orders for a user with no orders."""
+        orders = orders_api.get_orders("user_999")
+        assert len(orders) == 0
+        assert orders == []
+
     def test_swap_item_success(self) -> None:
         """Test swapping an item in a pending order."""
         result = orders_api.swap_item("ORD-004", "PROD-006", "PROD-001", "Merino Wool Performance Jacket")
