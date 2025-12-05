@@ -4,11 +4,12 @@ from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from loguru import logger
-from openai import APIError, AuthenticationError, RateLimitError
+from openai import APIError, RateLimitError
 from pydantic import ValidationError
 
 from concierge.agent.main import Agent
 from concierge.datatypes.chat_types import ChatRequest
+from concierge.datatypes.metrics_types import ConversationMetrics, GlobalMetrics
 
 load_dotenv()
 
@@ -38,19 +39,6 @@ async def pydantic_exception_handler(request: Request, exc: ValidationError) -> 
         content={
             "error": "Configuration error",
             "message": "Server configuration error. Please contact support.",
-        },
-    )
-
-
-@app.exception_handler(AuthenticationError)
-async def openai_auth_exception_handler(request: Request, exc: AuthenticationError) -> JSONResponse:
-    """Handle OpenAI authentication errors."""
-    logger.error(f"OpenAI authentication error: {exc}")
-    return JSONResponse(
-        status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-        content={
-            "error": "API authentication failed",
-            "message": "Unable to authenticate with the AI service. Please contact support.",
         },
     )
 
@@ -142,20 +130,70 @@ async def chat(request: ChatRequest) -> dict[str, str]:
         logger.info(f"Processing chat request for conversation {request.conversation_id}")
         response = agent.process_message(request.conversation_id, request.message)
         return {"message": response}
-    except AuthenticationError:
-        # Re-raise to be handled by exception handler
-        raise
     except RateLimitError:
-        # Re-raise to be handled by exception handler
         raise
     except APIError:
-        # Re-raise to be handled by exception handler
         raise
     except Exception as e:
         logger.exception(f"Error processing chat request: {e}")
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail="Failed to process your message. Please try again.",
+        ) from e
+
+
+@app.get("/api/v1/metrics/conversation/{conversation_id}", response_model=ConversationMetrics)
+async def get_conversation_metrics(conversation_id: str) -> ConversationMetrics:
+    """
+    Get metrics for a specific conversation.
+
+    Args:
+        conversation_id: The ID of the conversation
+
+    Returns:
+        ConversationMetrics: Aggregated metrics for the conversation
+
+    Raises:
+        HTTPException: If retrieval encounters an error
+    """
+    if not conversation_id or not conversation_id.strip():
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Conversation ID cannot be empty",
+        )
+
+    try:
+        logger.info(f"Retrieving metrics for conversation {conversation_id}")
+        metrics = agent.memory.get_conversation_metrics(conversation_id)
+        return metrics
+    except Exception as e:
+        logger.exception(f"Error retrieving conversation metrics: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to retrieve conversation metrics. Please try again.",
+        ) from e
+
+
+@app.get("/api/v1/metrics/global", response_model=GlobalMetrics)
+async def get_global_metrics() -> GlobalMetrics:
+    """
+    Get global metrics across all conversations.
+
+    Returns:
+        GlobalMetrics: Aggregated metrics across all conversations
+
+    Raises:
+        HTTPException: If retrieval encounters an error
+    """
+    try:
+        logger.info("Retrieving global metrics")
+        metrics = agent.memory.get_global_metrics()
+        return metrics
+    except Exception as e:
+        logger.exception(f"Error retrieving global metrics: {e}")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail="Failed to retrieve global metrics. Please try again.",
         ) from e
 
 

@@ -4,7 +4,7 @@ import json
 from datetime import datetime
 from typing import Optional
 
-from concierge.datatypes.general_types import OrderDetails, OrderItem
+from concierge.datatypes.api_types import OrderDetails, OrderItem
 from concierge.paths import ORDERS_DATA_PATH
 
 

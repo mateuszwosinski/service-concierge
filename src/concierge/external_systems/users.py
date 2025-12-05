@@ -3,7 +3,7 @@
 import json
 from typing import Optional
 
-from concierge.datatypes.general_types import UserProfile
+from concierge.datatypes.api_types import UserProfile
 from concierge.paths import USERS_DATA_PATH
 
 
