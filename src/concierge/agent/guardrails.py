@@ -53,6 +53,7 @@ class InputGuardrails:
         "outfit",
         "wardrobe",
         # Order-related
+        "email",
         "order",
         "orders",
         "purchase",
@@ -171,7 +172,7 @@ class InputGuardrails:
         # Travel (unless related to appointments)
         (r"\b(flight|hotel|vacation|travel package|tourism|tourist)", re.IGNORECASE),
         # Education
-        (r"\b(homework|essay|thesis|dissertation|study|exam|test|quiz)", re.IGNORECASE),
+        (r"\b(homework|essay|thesis|dissertation|study|quiz)", re.IGNORECASE),
     ]
 
     @classmethod

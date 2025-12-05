@@ -1,6 +1,6 @@
 """Demo script showing how to use the mock APIs."""
 
-from concierge.external_systems import appointments_api, knowledge_api, orders_api
+from concierge.external_systems import appointments_api, knowledge_api, orders_api, users_api
 
 
 def demo_orders_api() -> None:
@@ -52,6 +52,7 @@ def demo_appointments_api() -> None:
     # Schedule new appointment
     print("\n3. Schedule new VIP styling session:")
     result = appointments_api.schedule_appointment(
+        user_id="user_999",
         email="new.client@example.com",
         phone="+1-555-9999",
         date="2025-12-20",
@@ -116,8 +117,52 @@ def demo_knowledge_api() -> None:
         print(f"   - {product.name}: ${product.price:,.2f}")
 
 
+def demo_users_api() -> None:
+    """Demonstrate Users API functionality."""
+    print("\n=== USERS API DEMO ===\n")
+
+    # Get user by email
+    print("1. Get user by email:")
+    user = users_api.get_user_by_email("john.doe@example.com")
+    if user:
+        print(f"   User ID: {user.user_id}")
+        print(f"   Name: {user.name}")
+        print(f"   Email: {user.email}")
+        print(f"   Phone: {user.phone}")
+
+    # Get user by phone
+    print("\n2. Get user by phone:")
+    user = users_api.get_user_by_phone("+1-555-0102")
+    if user:
+        print(f"   User ID: {user.user_id}")
+        print(f"   Name: {user.name}")
+        print(f"   Email: {user.email}")
+        print(f"   Phone: {user.phone}")
+
+    # Get user by ID
+    print("\n3. Get user by ID:")
+    user = users_api.get_user_by_id("user_789")
+    if user:
+        print(f"   User ID: {user.user_id}")
+        print(f"   Name: {user.name}")
+
+    # Try non-existent user
+    print("\n4. Try to get non-existent user:")
+    user = users_api.get_user_by_email("nonexistent@example.com")
+    if user is None:
+        print("   User not found (expected)")
+
+    # Show all users
+    print("\n5. All users in the system:")
+    all_users = users_api.get_all_users()
+    print(f"   Total users: {len(all_users)}")
+    for user in all_users:
+        print(f"   - {user.user_id}: {user.name} ({user.email})")
+
+
 if __name__ == "__main__":
     demo_orders_api()
     demo_appointments_api()
     demo_knowledge_api()
+    demo_users_api()
     print("\n=== DEMO COMPLETE ===\n")
