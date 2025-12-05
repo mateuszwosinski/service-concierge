@@ -3,7 +3,7 @@
 import inspect
 from typing import Any, Callable
 
-from concierge.external_systems import appointments_api, knowledge_api, orders_api
+from concierge.external_systems import appointments_api, knowledge_api, orders_api, users_api
 
 from .utils import _parse_docstring, _python_type_to_json_schema
 
@@ -97,7 +97,7 @@ def _generate_all_tool_definitions() -> list[dict[str, Any]]:
     tool_definitions = []
 
     # Generate tools for each API
-    for api_instance in [orders_api, appointments_api, knowledge_api]:
+    for api_instance in [orders_api, appointments_api, knowledge_api, users_api]:
         methods = _get_api_methods(api_instance)
         for _, method in methods:
             tool_def = _generate_tool_definition(method)
@@ -119,7 +119,7 @@ def _build_tool_functions() -> dict[str, Callable[..., Any]]:
     """
     tool_functions = {}
 
-    for api_instance in [orders_api, appointments_api, knowledge_api]:
+    for api_instance in [orders_api, appointments_api, knowledge_api, users_api]:
         methods = _get_api_methods(api_instance)
         for method_name, method in methods:
             tool_functions[method_name] = method
