@@ -52,43 +52,15 @@ st.caption("Your personal AI assistant for premium products and services")
 # Create tabs
 if st.session_state.admin_mode:
     chat_tab, metrics_tab = st.tabs(["💬 Chat", "📊 Metrics"])
-else:
-    chat_tab = st.container()
-    metrics_tab = None
 
-# Chat Tab
-with chat_tab:
-    # Display chat messages
-    for message in st.session_state.messages:
-        with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+    # Chat Tab
+    with chat_tab:
+        # Display chat messages
+        for message in st.session_state.messages:
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
 
-    # Chat input
-    if prompt := st.chat_input("How may I assist you today?"):
-        # Add user message to chat history
-        st.session_state.messages.append({"role": "user", "content": prompt})
-
-        # Display user message
-        with st.chat_message("user"):
-            st.markdown(prompt)
-
-        # Get agent response
-        with st.chat_message("assistant"), st.spinner("Processing..."):
-            agent = get_agent()
-
-            # Agent handles conversation history internally
-            response = agent.process_message(
-                conversation_id=st.session_state.conversation_id,
-                message=prompt,
-            )
-
-            st.markdown(response)
-
-        # Add assistant response to chat history
-        st.session_state.messages.append({"role": "assistant", "content": response})
-
-# Metrics Tab (only visible in admin mode)
-if st.session_state.admin_mode and metrics_tab is not None:
+    # Metrics Tab
     with metrics_tab:
         st.header("📊 Analytics Dashboard")
 
@@ -178,6 +150,36 @@ if st.session_state.admin_mode and metrics_tab is not None:
                 st.dataframe(metrics_df, use_container_width=True)
             else:
                 st.info("No metrics data available yet.")
+else:
+    # No admin mode - just display chat messages
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
+
+# Chat input (outside tabs so it stays at the bottom)
+if prompt := st.chat_input("How may I assist you today?"):
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
+
+    # Display user message
+    with st.chat_message("user"):
+        st.markdown(prompt)
+
+    # Get agent response
+    with st.chat_message("assistant"), st.spinner("Processing..."):
+        agent = get_agent()
+
+        # Agent handles conversation history internally
+        response = agent.process_message(
+            conversation_id=st.session_state.conversation_id,
+            message=prompt,
+        )
+
+        st.markdown(response)
+
+    # Add assistant response to chat history
+    st.session_state.messages.append({"role": "assistant", "content": response})
+    st.rerun()
 
 # Sidebar with info
 with st.sidebar:
