@@ -145,6 +145,48 @@ The Streamlit app will automatically open in your browser at `http://localhost:8
 - Sample queries to get started
 - Clear chat functionality
 
+- **Admin mode with analytics dashboard**
+  - View global metrics across all conversations
+  - Monitor conversation-specific metrics
+  - Analyze tool usage patterns
+  - Track message processing latency
+  - Monitor guardrail blocks
+
+
+## Analytics & Metrics
+
+The concierge service includes built-in analytics to track message processing performance and tool usage.
+
+### Via API Endpoints
+
+Get metrics for a specific conversation:
+```bash
+curl "http://localhost:8000/api/v1/metrics/conversation/{conversation_id}"
+```
+
+Get global metrics:
+```bash
+curl "http://localhost:8000/api/v1/metrics/global"
+```
+
+### Via Streamlit Dashboard
+
+1. Run the Streamlit demo:
+   ```bash
+   make demo-streamlit
+   ```
+
+2. Enable admin mode:
+   - In the sidebar, enter the admin password set in .env file
+   - Click "Toggle Admin Mode"
+
+3. Navigate to the "📊 Metrics" tab to view:
+   - Real-time global metrics
+   - Current conversation metrics
+   - Tool usage charts
+   - Raw metrics data in table format
+
+
 # Work with the project
 
 ## Manage dependencies
