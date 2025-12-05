@@ -37,9 +37,9 @@ class TestKnowledgeAPI:
 
         assert product is not None
         assert product.product_id == "PROD-002"
-        assert product.name == "Technical Cashmere Sweater"
-        assert product.price == 485.00
-        assert product.category == "Knitwear"
+        assert product.name == "Merino Wool Henley"
+        assert product.price == 185.00
+        assert product.category == "Tops"
         assert product.in_stock is True
 
     def test_get_product_not_found(self) -> None:

@@ -49,6 +49,7 @@ class TestAppointmentsAPI:
     def test_schedule_appointment_success(self) -> None:
         """Test scheduling a new appointment."""
         result = appointments_api.schedule_appointment(
+            user_id="user-123",
             email="new.client@example.com",
             phone="+1-555-9999",
             date="2025-12-20",
@@ -70,6 +71,7 @@ class TestAppointmentsAPI:
         """Test scheduling appointment at conflicting time."""
         # Try to schedule at same time as existing appointment
         result = appointments_api.schedule_appointment(
+            user_id="user-123",
             email="john.doe@example.com",
             phone="+1-555-0101",
             date="2025-12-05",

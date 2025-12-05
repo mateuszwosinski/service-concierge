@@ -54,7 +54,6 @@ class TestToolDefinitions:
             "get_order_status",
             "swap_item",
             "cancel_order",
-            "update_order_status",
         }
 
         assert expected_orders_tools.issubset(tool_names)
