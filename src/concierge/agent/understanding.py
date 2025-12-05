@@ -12,6 +12,15 @@ from concierge.tools import execute_tool
 from concierge.tools.definitions import TOOL_DEFINITIONS
 
 
+class ProcessingResult:
+    """Result of processing a message, including metrics."""
+
+    def __init__(self, response: str, tools_used: list[str], num_iterations: int) -> None:
+        self.response = response
+        self.tools_used = tools_used
+        self.num_iterations = num_iterations
+
+
 class Understanding:
     """Class to handle understanding of user input using a language model with tool calling."""
 
@@ -28,7 +37,7 @@ class Understanding:
         latest_user_message: str,
         previous_messages: list[ChatCompletionMessageParam] | None = None,
         max_iterations: int = 10,
-    ) -> str:
+    ) -> ProcessingResult:
         """Process the input text using the language model with tool calling support.
 
         Args:
@@ -36,7 +45,7 @@ class Understanding:
             previous_messages: List of previous messages in the conversation
             max_iterations: Maximum number of tool calling iterations
         Returns:
-            Final response from the language model after executing any necessary tools
+            ProcessingResult containing the response and metrics
         """
         prompt = self._understanding_prompt_template.render(
             latest_user_message=latest_user_message, previous_messages=previous_messages if previous_messages else []
@@ -46,6 +55,8 @@ class Understanding:
         messages: list[ChatCompletionMessageParam] = [{"content": prompt, "role": "user"}]
 
         iteration = 0
+        tools_used: list[str] = []
+
         while iteration < max_iterations:
             logger.info(f"Tool calling iteration {iteration + 1}")
 
@@ -63,7 +74,11 @@ class Understanding:
             )
 
             if not assistant_message.tool_calls:
-                return assistant_message.content or ""
+                return ProcessingResult(
+                    response=assistant_message.content or "",
+                    tools_used=tools_used,
+                    num_iterations=iteration + 1,
+                )
 
             for tool_call in assistant_message.tool_calls:
                 tool_name = tool_call.function.name
@@ -71,6 +86,7 @@ class Understanding:
 
                 logger.info(f"Executing tool: {tool_name} with arguments: {tool_arguments}")
 
+                tools_used.append(tool_name)
                 tool_result = execute_tool(tool_name, tool_arguments)
 
                 messages.append(
@@ -83,7 +99,11 @@ class Understanding:
                 logger.info(f"Tool result for {tool_name}: {tool_result}")
             iteration += 1
 
-        return messages[-1]["content"] or ""
+        return ProcessingResult(
+            response=messages[-1]["content"] or "",
+            tools_used=tools_used,
+            num_iterations=iteration,
+        )
 
     def _call_llm(self, messages: list[ChatCompletionMessageParam]) -> ChatCompletion:
         for i in range(3):

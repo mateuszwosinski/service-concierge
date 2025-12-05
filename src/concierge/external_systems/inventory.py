@@ -3,7 +3,7 @@
 import json
 from typing import Optional
 
-from concierge.datatypes.general_types import PolicyDocument, Product
+from concierge.datatypes.api_types import PolicyDocument, Product
 from concierge.paths import POLICIES_DATA_PATH, PRODUCTS_DATA_PATH
 
 
