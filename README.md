@@ -1,4 +1,6 @@
-# concierge
+# The Intelligent Service Concierge
+
+Intelligent Assistant for a high-end lifestyle brand that offers both physical products (clothing, gear) and services (fitting appointments, styling sessions).
 
 # Quick Start
 
@@ -240,3 +242,142 @@ You can also sync specific groups:
 uv sync --dev        # development dependencies
 uv sync --group foo  # custom dependency group in dependency-groups
 ```
+
+# Service Concierge Architecture
+
+## High-Level Architecture Diagram
+
+```mermaid
+graph TB
+    subgraph "Presentation Layer"
+        UI[Streamlit Web UI<br/>:8501<br/>Chat Interface & Admin Dashboard]
+    end
+
+    subgraph "API Gateway"
+        API[FastAPI Server<br/>:8000<br/>REST API Endpoints]
+    end
+
+    subgraph "Core Agent System"
+        Agent[Agent Orchestrator<br/>Message Processing Workflow]
+        Guardrails[Input Guardrails<br/>Rule-based Filtering]
+        Understanding[Understanding Component<br/>LLM Integration & Tool Calling]
+        ToolExec[Tool Executor<br/>Dynamic Function Execution]
+    end
+
+    subgraph "Memory Layer"
+        Memory[In-Memory Store<br/>Conversation History<br/>Metrics Collection]
+    end
+
+    subgraph "Tools & External Systems"
+        Orders[Orders API<br/>CRUD Operations]
+        Appointments[Appointments API<br/>Scheduling & Management]
+        Knowledge[Knowledge API<br/>Products & Policies Search]
+        Users[Users API<br/>Profile Lookup]
+    end
+
+    subgraph "AI Service"
+        OpenAI[OpenAI API<br/>LLM<br/>Function Calling]
+    end
+
+    subgraph "Data Storage"
+        DataFiles[(JSON Files<br/>products.json<br/>orders.json<br/>appointments.json<br/>policies.json<br/>users.json)]
+    end
+
+    UI -->|HTTP POST /api/v1/chat| API
+    UI -->|GET /api/v1/metrics| API
+
+    API -->|process_message| Agent
+    API -->|get_metrics| Memory
+
+    Agent -->|1. validate input| Guardrails
+    Agent -->|2. retrieve history| Memory
+    Agent -->|3. process with LLM| Understanding
+    Agent -->|4. store response| Memory
+    Agent -.->|5. return response| API
+
+    Guardrails -->|allowed| Agent
+    Guardrails -.->|blocked| API
+
+    Understanding -->|generate response| OpenAI
+    Understanding -->|execute tools| ToolExec
+    OpenAI -->|tool calls| Understanding
+
+    ToolExec -->|invoke| Orders
+    ToolExec -->|invoke| Appointments
+    ToolExec -->|invoke| Knowledge
+    ToolExec -->|invoke| Users
+
+    Orders -->|read/write| DataFiles
+    Appointments -->|read/write| DataFiles
+    Knowledge -->|read| DataFiles
+    Users -->|read| DataFiles
+
+    Memory -.->|metrics tracking| Agent
+
+    classDef frontend fill:#e1f5ff,stroke:#01579b,stroke-width:2px
+    classDef api fill:#fff9c4,stroke:#f57f17,stroke-width:2px
+    classDef core fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef memory fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    classDef external fill:#ffe0b2,stroke:#e65100,stroke-width:2px
+    classDef ai fill:#fce4ec,stroke:#880e4f,stroke-width:2px
+    classDef data fill:#eceff1,stroke:#263238,stroke-width:2px
+
+    class UI frontend
+    class API api
+    class Agent,Guardrails,Understanding,ToolExec core
+    class Memory memory
+    class Orders,Appointments,Knowledge,Users external
+    class OpenAI ai
+    class DataFiles data
+```
+
+## Component Overview
+
+### Presentation Layer
+- **Streamlit Web UI**: Interactive chat interface with admin dashboard for metrics visualization
+
+### API Gateway
+- **FastAPI Server**: RESTful API with endpoints for chat, metrics, and health checks
+
+### Core Agent System
+- **Agent Orchestrator**: Manages message processing workflow and coordinates components
+- **Input Guardrails**: Validates queries against allowed topics (products, orders, appointments)
+- **Understanding Component**: Integrates with OpenAI for language understanding and tool calling
+- **Tool Executor**: Dynamically executes tools and formats results
+
+### Memory Layer
+- **In-Memory Store**: Maintains conversation history and collects performance metrics
+
+### Tools & External Systems
+- **Orders API**: Order management (create, update, cancel, swap items)
+- **Appointments API**: Appointment scheduling and management with conflict detection
+- **Knowledge API**: Product catalog and policy document search
+- **Users API**: User profile lookup by ID, email, or phone
+
+### AI Service
+- **OpenAI API**: LLM with function calling capabilities
+
+### Data Storage
+- **JSON Files**: Mock database with sample data for products, orders, appointments, policies, and users
+
+## Request Flow
+
+1. User sends message through Streamlit UI or direct API call
+2. FastAPI receives request at `/api/v1/chat` endpoint
+3. Agent validates input through Guardrails
+4. Agent retrieves conversation history from Memory
+5. Understanding component processes message with OpenAI
+6. OpenAI returns tool calls (if needed)
+7. Tool Executor invokes appropriate APIs (Orders, Appointments, Knowledge, Users)
+8. APIs read/write to JSON data files
+9. Results feed back to OpenAI for response generation
+10. Agent stores response in Memory and records metrics
+11. Final response returned to user
+
+## Key Features
+
+- **Multi-Intent Handling**: Processes complex queries spanning multiple domains
+- **Agentic Loop**: Self-correcting with up to 10 tool-calling iterations
+- **Real-time Metrics**: Tracks latency, tool usage, and guardrail violations
+- **Luxury Concierge Focus**: Specialized for high-end retail customer service
+- **Stateless Design**: Scalable API with in-memory session management
