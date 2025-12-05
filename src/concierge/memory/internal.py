@@ -7,7 +7,6 @@ class Memory:
 
     def __init__(self) -> None:
         self.store: dict[str, list[RoleMessage]] = {}
-        self.analytics_data: dict[str, dict] = {}
         self.metrics: list[MessageMetrics] = []
 
     def get_conversation(self, conversation_id: str) -> list[RoleMessage]:
