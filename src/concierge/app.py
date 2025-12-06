@@ -7,11 +7,11 @@ from loguru import logger
 from openai import APIError, RateLimitError
 from pydantic import ValidationError
 
-from concierge.agent.main import Agent
-from concierge.datatypes.chat_types import ChatRequest
-from concierge.datatypes.metrics_types import ConversationMetrics, GlobalMetrics
-
 load_dotenv()
+
+from concierge.agent.main import Agent  # noqa: E402
+from concierge.datatypes.chat_types import ChatRequest  # noqa: E402
+from concierge.datatypes.metrics_types import ConversationMetrics, GlobalMetrics  # noqa: E402
 
 app = FastAPI(title="Concierge Service", version="1.0.0")
 

@@ -22,9 +22,10 @@ The easiest way to run the application is using Docker. This method requires no 
 cp .env.example .env
 ```
 
-Edit `.env` and add your OpenAI API key:
+Edit `.env` and add your OpenAI API key and your password to admin functionalities:
 ```
 OPENAI_API_KEY=your-api-key-here
+ADMIN_PASSWORD=your-password-here
 ```
 
 2. Build and start the service:
@@ -68,7 +69,11 @@ You need to setup virtual environment, simplest way is to run from project root 
 $ . ./setup_dev_env.sh
 ```
 
-This will create a new venv, install dependencies and activate the environment.
+This will create a new venv, install dependencies and activate the environment. If virtual environment is not activated correctly, use:
+
+```bash
+. ./.venv/bin/activate
+```
 
 ## Run pre-commit
 

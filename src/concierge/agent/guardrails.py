@@ -74,6 +74,7 @@ class InputGuardrails:
         "return",
         "refund",
         "exchange",
+        "like",
         # Appointment-related
         "appointment",
         "appointments",
