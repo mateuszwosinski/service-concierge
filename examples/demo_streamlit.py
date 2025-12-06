@@ -235,7 +235,7 @@ with st.sidebar:
     - "What's the status of order ORD-001?"
     - "Show appointments for john.doe@example.com"
     - "What's your return policy?"
-    - "I need a new suit and want to book a fitting"
+    - "If you have the Navy Merino Wool Jacket in size M, please make an order for it for john.doe@example.com."
     """)
 
     st.divider()

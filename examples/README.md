@@ -45,7 +45,7 @@ Try these sample queries:
 - "What's the status of order ORD-001?"
 - "Schedule a fitting appointment for next week"
 - "What's your return policy?"
-- "I need a new suit for an event and want to book a fitting" (multi-intent)
+- "If you have the Navy Merino Wool Jacket in size M, please make an order for it for john.doe@example.com." (multi-intent)
 
 ## Other Demos
 
